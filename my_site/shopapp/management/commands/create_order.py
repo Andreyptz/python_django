@@ -8,7 +8,7 @@ class Command(BaseCommand):
         user = User.objects.get(username='admin')
         order = Order.objects.get_or_create(
             delivery_address="ul V'uznaya, d.4",
-            pomocode='Sale2020',
+            promocode='Sale2020',
             user=user,
         )
         self.stdout.write(f"Created order {order}")
