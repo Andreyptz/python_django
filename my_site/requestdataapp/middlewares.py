@@ -28,17 +28,17 @@ class CountRequestMiddleware:
         min_pause = 20
         self.requests_count += 1
         print("requests count", self.requests_count)
-        ip = request.META.get('REMOTE_ADDR')
-        if ip in self.ip_and_time:
-            print(time.time() - self.ip_and_time[ip])
-            if time.time() - self.ip_and_time[ip] < min_pause:
-                print("Повторный запрос возможен только через 20 секунд")
-                self.ip_and_time[ip] = time.time()
-                return render(request, 'requestdataapp/pause.html')
-            else:
-                self.ip_and_time[ip] = time.time()
-        else:
-            self.ip_and_time[ip] = time.time()
+        # ip = request.META.get('REMOTE_ADDR')
+        # if ip in self.ip_and_time:
+        #     print(time.time() - self.ip_and_time[ip])
+        #     if time.time() - self.ip_and_time[ip] < min_pause:
+        #         print("Повторный запрос возможен только через 20 секунд")
+        #         self.ip_and_time[ip] = time.time()
+        #         return render(request, 'requestdataapp/pause.html')
+        #     else:
+        #         self.ip_and_time[ip] = time.time()
+        # else:
+        #     self.ip_and_time[ip] = time.time()
         response = self.get_response(request)
         self.responses_count += 1
         print("responses count", self.responses_count)
