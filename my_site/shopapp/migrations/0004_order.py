@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('delivery_address', models.TextField(blank=True, null=True)),
-                ('promocode', models.CharField(blank=True, max_length=20)),
+                ('pomocode', models.CharField(blank=True, max_length=20)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
