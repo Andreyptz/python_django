@@ -1,39 +1,36 @@
+from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.views import LogoutView, LoginView
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
+from django.views.generic import TemplateView, CreateView
+from .models import Profile
 
-from my_site import settings
 
-class MyLogoutView(LogoutView):
-    next_page = reverse_lazy("myauth:login")
+class AboutMeView(TemplateView):
+    template_name = "myauth/about-me.html"
 
-def set_cookie_view(request: HttpRequest) -> HttpResponse:
-    response = HttpResponse("Cookie set")
-    response.set_cookie("fizz", "buzz", max_age=3600)
-    return response
+class RegisterView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'myauth/register.html'
+    success_url = reverse_lazy("myauth:about-me")
 
-def get_cookie_view(request: HttpRequest) -> HttpResponse:
-    value = request.COOKIES.get("fizz", "default value")
-    return HttpResponse(f"Cookie value: {value!r}")
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        Profile.objects.create(user=self.object)
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = authenticate(
+            self.request,
+            username=username,
+            password=password
+        )
+        login(request=self.request, user=user)
+        return response
 
-def set_session_view(request: HttpRequest) -> HttpResponse:
-    request.session["foobar"] = "spameggs"
-    return HttpResponse("Session set!")
-
-def get_session_view(request: HttpRequest) -> HttpResponse:
-    value = request.session.get("foobar", "default")
-    return HttpResponse(f'Session value: {value!r}')
-
-# class MyLoginView(LoginView):
-#     def get_success_url(self):
-#         return resolve_url(settings.LOGIN_REDIRECT_URL)
-#
-#     def form_invalid(self, form):
-#         messages.error(self.request, 'Invalid username or password')
-#         return self.render_to_response(self.get_context_data(form=form))
 
 # def login_view(request: HttpRequest) -> HttpResponse:
 #     if request.method == "GET":
@@ -53,3 +50,26 @@ def get_session_view(request: HttpRequest) -> HttpResponse:
 # def logout_view(request: HttpRequest):
 #     logout(request)
 #     return redirect(reverse("myauth:login"))
+class MyLogoutView(LogoutView):
+    next_page = reverse_lazy("myauth:login")
+
+@user_passes_test(lambda u: u.is_superuser)
+def set_cookie_view(request: HttpRequest) -> HttpResponse:
+    response = HttpResponse("Cookie set")
+    response.set_cookie("fizz", "buzz", max_age=3600)
+    return response
+
+def get_cookie_view(request: HttpRequest) -> HttpResponse:
+    value = request.COOKIES.get("fizz", "default value")
+    return HttpResponse(f"Cookie value: {value!r}")
+
+@permission_required("myauth.view_profile", raise_exception=True)
+def set_session_view(request: HttpRequest) -> HttpResponse:
+    request.session["foobar"] = "spameggs"
+    return HttpResponse("Session set!")
+
+@login_required
+def get_session_view(request: HttpRequest) -> HttpResponse:
+    value = request.session.get("foobar", "default")
+    return HttpResponse(f'Session value: {value!r}')
+
