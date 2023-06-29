@@ -6,7 +6,7 @@ from .views import ShopIndexView, \
     ProductListView, \
     ProductCreateView, \
     ProductUpdateView, \
-    ProductDeleteView, \
+    ProductDeleteView,\
     OrderListView, \
     OrderDetailView, \
     OrderCreateView, \
