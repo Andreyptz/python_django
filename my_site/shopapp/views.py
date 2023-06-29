@@ -45,7 +45,7 @@ class ProductDetailsView(DetailView):
     context_object_name = "product"
 
 class ProductListView(PermissionRequiredMixin, ListView):
-    permission_required = "shopapp.add_product"
+    permission_required = "shopapp.view_product"
     template_name = "shopapp/products-list.html"
     # model = Product
     context_object_name = "products"
