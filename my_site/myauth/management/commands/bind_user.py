@@ -15,8 +15,10 @@ class Command(BaseCommand):
         )
         # добавление разрешения в группу
         group.permissions.add(permission_profile)
+
         # присоединение пользователя к группе
         user.groups.add(group)
+
         # связать пользователя напрямую с разрешением
         user.user_permissions.add(permission_logentry)
 

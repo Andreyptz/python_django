@@ -44,7 +44,8 @@ class ProductDetailsView(DetailView):
     model = Product
     context_object_name = "product"
 
-class ProductListView(ListView):
+class ProductListView(PermissionRequiredMixin, ListView):
+    permission_required = "shopapp.add_product"
     template_name = "shopapp/products-list.html"
     # model = Product
     context_object_name = "products"
@@ -75,14 +76,28 @@ class ProductListView(ListView):
 
 class ProductCreateView(UserPassesTestMixin, CreateView):
     def test_func(self):
-        # return self.request.user.groups.filter(name="secret-group").exist()
-        return self.request.user.is_superuser
+        return self.request.user.groups.filter(name="qwerty") or self.request.user.is_superuser
+        # return self.request.user.is_superuser
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
 
     model = Product
     fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(UserPassesTestMixin, UpdateView):
+    def test_func(self):
+        return self.request.user.is_superuser or self.request.user.groups.filter(name="qwerty")
+
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+
+
+
     model = Product
     fields = "name", "price", "description", "discount"
     template_name_suffix = "_update_form"
@@ -102,6 +117,7 @@ class ProductDeleteView(DeleteView):
         self.object.archived = True
         self.object.save()
         return HttpResponseRedirect(success_url)
+
 
 """ Order section """
 
