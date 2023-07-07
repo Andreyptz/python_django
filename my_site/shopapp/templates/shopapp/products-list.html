@@ -22,7 +22,7 @@
         <h1>No products yet</h1>
     {% endif %}
 
-    {% if perms %}
+    {% if perms.shopapp.add_product %}
         <div>
             <a href="{% url 'shopapp:product_create' %}"
             >Create a new product</a>

@@ -13,7 +13,7 @@
         <div>Archived: {{ product.archived }}</div>
     </div>
 
-    {% if perms %}
+    {% if perms.shopapp.change_product %}
         <div>
             <a href="{% url 'shopapp:product_update' pk=product.pk %}"
             >Update product</a>
