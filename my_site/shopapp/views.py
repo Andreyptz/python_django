@@ -1,7 +1,8 @@
 from timeit import default_timer
 
 from django.contrib.auth.models import Group
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect
+from django.core.exceptions import PermissionDenied
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
@@ -26,6 +27,7 @@ class ShopIndexView(View):
 
 
 class GroupListView(View):
+    """Создание групп разрешений"""
     def get(self, request: HttpRequest) -> HttpResponse:
         context = {
             "form": GroupForm(),
@@ -40,12 +42,14 @@ class GroupListView(View):
         return redirect(request.path)
 
 class ProductDetailsView(DetailView):
+    """Подробнее о продуктах"""
     template_name = "shopapp/products-details.html"
     model = Product
     context_object_name = "product"
 
-class ProductListView(PermissionRequiredMixin, ListView):
-    permission_required = "shopapp.view_product"
+class ProductListView(ListView):
+    """Список продуктов"""
+
     template_name = "shopapp/products-list.html"
     # model = Product
     context_object_name = "products"
@@ -74,10 +78,12 @@ class ProductListView(PermissionRequiredMixin, ListView):
 #     }
 #     return render(request, 'shopapp/create-product.html', context=context)
 
-class ProductCreateView(UserPassesTestMixin, CreateView):
+class ProductCreateView(PermissionRequiredMixin, UserPassesTestMixin, CreateView):
+    """Создание продуктов"""
+    permission_required = "shopapp.add_product"
     def test_func(self):
-        return self.request.user.groups.filter(name="qwerty") or self.request.user.is_superuser
-        # return self.request.user.is_superuser
+        # return self.request.user.groups.filter(name="qwerty") or self.request.user.is_superuser
+        return self.request.user
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -86,17 +92,19 @@ class ProductCreateView(UserPassesTestMixin, CreateView):
     model = Product
     fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
-
 class ProductUpdateView(UserPassesTestMixin, UpdateView):
+    """Изменение описания продуктов"""
+
     def test_func(self):
         return self.request.user.is_superuser or self.request.user.groups.filter(name="qwerty")
 
-    def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
 
-
-
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        if obj.created_by == self.request.user or self.request.user.is_superuser:
+            return obj
+        else:
+            raise PermissionDenied("403 Forbidden")
 
     model = Product
     fields = "name", "price", "description", "discount"
@@ -109,6 +117,7 @@ class ProductUpdateView(UserPassesTestMixin, UpdateView):
         )
 
 class ProductDeleteView(DeleteView):
+    """Удаление продуктов"""
     model = Product
     success_url = reverse_lazy("shopapp:products_list")
 
@@ -120,6 +129,8 @@ class ProductDeleteView(DeleteView):
 
 
 """ Order section """
+
+
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
