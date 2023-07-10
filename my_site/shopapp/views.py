@@ -1,6 +1,6 @@
 from timeit import default_timer
 
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, Permission, User
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -78,12 +78,9 @@ class ProductListView(ListView):
 #     }
 #     return render(request, 'shopapp/create-product.html', context=context)
 
-class ProductCreateView(PermissionRequiredMixin, UserPassesTestMixin, CreateView):
+class ProductCreateView(PermissionRequiredMixin, CreateView):
     """Создание продуктов"""
     permission_required = "shopapp.add_product"
-    def test_func(self):
-        # return self.request.user.groups.filter(name="qwerty") or self.request.user.is_superuser
-        return self.request.user
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -95,16 +92,22 @@ class ProductCreateView(PermissionRequiredMixin, UserPassesTestMixin, CreateView
 class ProductUpdateView(UserPassesTestMixin, UpdateView):
     """Изменение описания продуктов"""
 
-    def test_func(self):
-        return self.request.user.is_superuser or self.request.user.groups.filter(name="qwerty")
-
-
-    def get_object(self, queryset=None):
+    def test_func(self, queryset=None):
         obj = super().get_object(queryset=queryset)
         if obj.created_by == self.request.user or self.request.user.is_superuser:
-            return obj
+            return self.request.user.is_superuser or \
+                self.request.user.has_perm("shopapp.change_product")
+                # self.request.user.groups.filter(name="qwerty")
         else:
             raise PermissionDenied("403 Forbidden")
+
+
+    # def get_object(self, queryset=None):
+    #     obj = super().get_object(queryset=queryset)
+    #     if obj.created_by == self.request.user or self.request.user.is_superuser:
+    #         return obj
+    #     else:
+    #         raise PermissionDenied("403 Forbidden")
 
     model = Product
     fields = "name", "price", "description", "discount"
