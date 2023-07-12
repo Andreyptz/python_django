@@ -4,6 +4,7 @@ from .views import ShopIndexView, \
     GroupListView, \
     ProductDetailsView, \
     ProductListView, \
+    ProductsDataExportView, \
     ProductCreateView, \
     ProductUpdateView, \
     ProductDeleteView,\
@@ -18,6 +19,7 @@ app_name = "shopapp"
 urlpatterns = [
     path('', ShopIndexView.as_view(), name="index"),
     path('groups/', GroupListView.as_view(), name='groups_list'),
+    path('products/export/', ProductsDataExportView.as_view(), name='products-export'),
     path('products/', ProductListView.as_view(), name='products_list'),
     path('products/<int:pk>/', ProductDetailsView.as_view(), name='product_details'),
     path('products/create/', ProductCreateView.as_view(), name="product_create"),

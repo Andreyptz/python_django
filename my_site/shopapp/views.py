@@ -2,7 +2,7 @@ from timeit import default_timer
 
 from django.contrib.auth.models import Group, Permission, User
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, Http404
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.urls import reverse_lazy
 from django.views import View
@@ -81,6 +81,9 @@ class ProductListView(ListView):
 class ProductCreateView(PermissionRequiredMixin, CreateView):
     """Создание продуктов"""
     permission_required = "shopapp.add_product"
+    # def test_func(self):
+        # return self.request.user.groups.filter(name="qwerty") or self.request.user.is_superuser
+        # return self.request.user
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -89,6 +92,7 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
     model = Product
     fields = "name", "price", "description", "discount"
     success_url = reverse_lazy("shopapp:products_list")
+
 class ProductUpdateView(UserPassesTestMixin, UpdateView):
     """Изменение описания продуктов"""
 
@@ -181,3 +185,17 @@ class OrderUpdateView(UpdateView):
 class OrderDeleteView(DeleteView):
     model = Order
     success_url = reverse_lazy("shopapp:orders_list")
+
+class ProductsDataExportView(View):
+    def get(self, request: HttpRequest) -> JsonResponse:
+        products = Product.objects.order_by("pk").all()
+        products_data = [
+            {
+                "pk": product.pk,
+                "name": product.name,
+                "price": product.price,
+                "archived": product.archived
+            }
+            for product in products
+        ]
+        return JsonResponse({"products": products_data})
