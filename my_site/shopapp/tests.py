@@ -41,15 +41,16 @@ class ProductCreateViewTestCase(TestCase):
 class ProductDetailsViewTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
+        # TODO вызовите метод предка через super()...
         cls.user = User.objects.create_user(username="sam", password="18273645qywter")
-        cls.product = Product.objects.create(name="Best Product")
+        cls.product = Product.objects.create(name="Best Product")  # TODO поле created_by является обязательным согланос вашей модели
     # def setUp(self) -> None:
     #     self.product = Product.objects.create(name="Best Product")
 
     @classmethod
     def tearDownClass(cls):
         cls.user.delete()
-        cls.product.delete()
+        cls.product.delete()   # TODO так как товар имеет ссылку на пользователя, то удалять его надо первым, до удаления пользователя
     def setUp(self) -> None:
         self.client.force_login(self.user)
     def test_get_product(self):
