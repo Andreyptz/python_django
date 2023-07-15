@@ -135,9 +135,9 @@ class ProductDeleteView(DeleteView):
         return HttpResponseRedirect(success_url)
 
 
-""" Order section """
-
-
+""" 
+Order section 
+"""
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
