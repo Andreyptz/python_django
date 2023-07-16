@@ -206,17 +206,10 @@ class OrderDetailViewTestCase(TestCase):
             self.assertEqual(p.pk, p_.pk)
 
 class OrdersExportTestCase(TestCase):
-        # доступ к заказу у пользователей с уровнем доступа is_staff
-        # (для этого нужно использовать проверку через user passes test)
-        # Не понимаю пока как реализовать
-
-        # Тест проходит, но словари пустые (полагаю, что из-за отсутствующего доступа).
+        # Тест проходит, но словари пустые.
     @classmethod
     def setUpClass(cls):
-        cls.user = User.objects.create_user(username="bob_test", password="qwerty")
-        permission = Permission.objects.get(codename='view_product')
-        cls.user.user_permissions.add(permission)
-
+        cls.user = User.objects.create_user(username="bob_test", password="qwerty", is_staff='True')
     @classmethod
     def tearDownClass(cls):
         cls.user.delete()
