@@ -2,6 +2,7 @@ from string import ascii_letters
 from random import choices
 
 from django.conf import settings
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User, Permission
 from django.test import TestCase
 from django.urls import reverse
@@ -204,7 +205,7 @@ class OrderDetailViewTestCase(TestCase):
         for p, p_ in zip(order, order_):
             self.assertEqual(p.pk, p_.pk)
 
-class OrdersDataExportTestCase(TestCase):
+class OrdersExportTestCase(TestCase):
         # доступ к заказу у пользователей с уровнем доступа is_staff
         # (для этого нужно использовать проверку через user passes test)
         # Не понимаю пока как реализовать
@@ -213,6 +214,8 @@ class OrdersDataExportTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
         cls.user = User.objects.create_user(username="bob_test", password="qwerty")
+        permission = Permission.objects.get(codename='view_product')
+        cls.user.user_permissions.add(permission)
 
     @classmethod
     def tearDownClass(cls):
@@ -225,6 +228,7 @@ class OrdersDataExportTestCase(TestCase):
         "orders-fixture.json"
     ]
 
+    @user_passes_test(lambda u: u.is_staff)
     def test_get_orders_view(self):
         response = self.client.get(
             reverse("shopapp:orders-export"),
