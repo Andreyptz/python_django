@@ -187,10 +187,62 @@ class OrderDetailViewTestCase(TestCase):
 
     def setUp(self) -> None:
         self.client.force_login(self.user)
-        self.order = Order.delivery_address(delivery_address='Pupkin strasse')
+        self.order = Order.objects.create(delivery_address='Pupkin street', user_id=self.user.id)
 
     def tearDown(self) -> None:
         self.order.delete()
 
     def test_order_details(self):
-        pass
+        response = self.client.get(
+            reverse('shopapp:orders_list')
+        )
+        # self.assertTrue(Order.objects.filter(delivery_address='Pupkin strasse').exists())
+        self.assertContains(response, self.order.delivery_address)
+        self.assertContains(response, self.order.pomocode)
+        order = Order.objects.filter(user_id=self.user.pk).all()
+        order_ = response.context["order_list"]
+        for p, p_ in zip(order, order_):
+            self.assertEqual(p.pk, p_.pk)
+
+class OrdersDataExportTestCase(TestCase):
+        # доступ к заказу у пользователей с уровнем доступа is_staff
+        # (для этого нужно использовать проверку через user passes test)
+        # Не понимаю пока как реализовать
+
+        # Тест проходит, но словари пустые (полагаю, что из-за отсутствующего доступа).
+    @classmethod
+    def setUpClass(cls):
+        cls.user = User.objects.create_user(username="bob_test", password="qwerty")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.user.delete()
+
+    def setUp(self) -> None:
+        self.client.force_login(self.user)
+
+    fixtures = [
+        "orders-fixture.json"
+    ]
+
+    def test_get_orders_view(self):
+        response = self.client.get(
+            reverse("shopapp:orders-export"),
+        )
+        self.assertEqual(response.status_code, 200)
+        orders = Order.objects.order_by("pk").all()
+        expected_data = [
+            {
+                "id": order.pk,
+                "delivery_address": order.delivery_address,
+                "promocode": order.pomocode,
+                "user_id": order.user,
+                "product_id": order.products
+            }
+            for order in orders
+        ]
+        orders_data = response.json()
+        self.assertEqual(
+            orders_data["orders"],
+            expected_data,
+        )
