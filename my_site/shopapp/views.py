@@ -134,10 +134,23 @@ class ProductDeleteView(DeleteView):
         self.object.save()
         return HttpResponseRedirect(success_url)
 
+class ProductsDataExportView(View):
+    def get(self, request: HttpRequest) -> JsonResponse:
+        products = Product.objects.order_by("pk").all()
+        products_data = [
+            {
+                "pk": product.pk,
+                "name": product.name,
+                "price": product.price,
+                "archived": product.archived
+            }
+            for product in products
+        ]
+        return JsonResponse({"products": products_data})
 
-""" Order section """
-
-
+""" 
+Order section 
+"""
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
@@ -186,16 +199,17 @@ class OrderDeleteView(DeleteView):
     model = Order
     success_url = reverse_lazy("shopapp:orders_list")
 
-class ProductsDataExportView(View):
+class OrdersDataExportView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
-        products = Product.objects.order_by("pk").all()
-        products_data = [
+        orders = Order.objects.order_by("pk").all()
+        orders_data = [
             {
-                "pk": product.pk,
-                "name": product.name,
-                "price": product.price,
-                "archived": product.archived
+                "id": order.pk,
+                "delivery_address": order.delivery_address,
+                "promocode": order.pomocode,
+                "user_id": order.user,
+                "product_id": order.products
             }
-            for product in products
+            for order in orders
         ]
-        return JsonResponse({"products": products_data})
+        return JsonResponse({"orders": orders_data})
