@@ -199,7 +199,7 @@ class OrderDeleteView(DeleteView):
     model = Order
     success_url = reverse_lazy("shopapp:orders_list")
 
-class OrdersDataExportView(View):
+class OrdersExportView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
         orders = Order.objects.order_by("pk").all()
         orders_data = [
