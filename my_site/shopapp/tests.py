@@ -1,6 +1,7 @@
 from string import ascii_letters
 from random import choices
 
+import json
 from django.conf import settings
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.models import User, Permission
@@ -46,6 +47,7 @@ class ProductCreateViewTestCase(TestCase):
 class ProductDetailsViewTestCase(TestCase):
     @classmethod
     def setUpClass(cls):
+        super().setUpClass()
         cls.user = User.objects.create_user(username="bob_test", password="qwerty")
         permission = Permission.objects.get(codename='add_product')
         cls.user.user_permissions.add(permission)
@@ -115,19 +117,25 @@ class ProductsListViewTestCase(TestCase):
         self.assertTemplateUsed(response, "shopapp/products-list.html")
 
 class ProductExportViewTestCese(TestCase):
+    fixtures = [
+        "products-fixture.json",
+        "orders-fixture.json",
+        "users-fixture.json",
+    ]
     @classmethod
     def setUpClass(cls):
+        super().setUpClass()
         # cls.credentials = dict(username="bob_test", password="qwerty")
-        cls.user = User.objects.create_user(username="bob_test", password="qwerty")
+        cls.user = User.objects.create_user(username="bob_test", password="qwerty", is_staff='True')
+
     @classmethod
     def tearDownClass(cls):
+        super().tearDownClass()
         cls.user.delete()
+
     def setUp(self) -> None:
         self.client.force_login(self.user)
 
-    fixtures = [
-        "products-fixture.json"
-    ]
     def test_get_products_view(self):
         response = self.client.get(
             reverse("shopapp:products-export"),
@@ -206,22 +214,25 @@ class OrderDetailViewTestCase(TestCase):
             self.assertEqual(p.pk, p_.pk)
 
 class OrdersExportTestCase(TestCase):
-        # Тест проходит, но словари пустые.
+    fixtures = [
+        "products-fixture.json",
+        "orders-fixture.json",
+        "users-fixture.json",
+    ]
+
     @classmethod
     def setUpClass(cls):
+        super().setUpClass()
         cls.user = User.objects.create_user(username="bob_test", password="qwerty", is_staff='True')
+
     @classmethod
     def tearDownClass(cls):
+        super().tearDownClass()
         cls.user.delete()
 
     def setUp(self) -> None:
         self.client.force_login(self.user)
 
-    fixtures = [
-        "orders-fixture.json"
-    ]
-
-    @user_passes_test(lambda u: u.is_staff)
     def test_get_orders_view(self):
         response = self.client.get(
             reverse("shopapp:orders-export"),
@@ -233,12 +244,13 @@ class OrdersExportTestCase(TestCase):
                 "id": order.pk,
                 "delivery_address": order.delivery_address,
                 "promocode": order.pomocode,
-                "user_id": order.user,
-                "product_id": order.products
+                "user_id": order.user_id,
+                "products": [product.pk for product in order.products.all()]
             }
             for order in orders
         ]
         orders_data = response.json()
+        print(orders_data['orders'], expected_data)
         self.assertEqual(
             orders_data["orders"],
             expected_data,

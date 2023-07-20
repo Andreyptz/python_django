@@ -1,5 +1,6 @@
 from timeit import default_timer
 
+import json
 from django.contrib.auth.models import Group, Permission, User
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
@@ -8,9 +9,11 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
-from .forms import GroupForm
-from .models import Product, Order
-from .forms_old import ProductForm, OrderForm
+
+from .forms import ProductForm
+from .forms_old_1 import GroupForm
+from .models import Product, Order, ProductImage
+# from .forms_old import ProductForm, OrderForm
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
@@ -44,7 +47,8 @@ class GroupListView(View):
 class ProductDetailsView(DetailView):
     """Подробнее о продуктах"""
     template_name = "shopapp/products-details.html"
-    model = Product
+    # model = Product
+    queryset = Product.objects.prefetch_related("images")
     context_object_name = "product"
 
 class ProductListView(ListView):
@@ -90,7 +94,7 @@ class ProductCreateView(PermissionRequiredMixin, CreateView):
         return super().form_valid(form)
 
     model = Product
-    fields = "name", "price", "description", "discount"
+    fields = "name", "price", "description", "discount", "preview"
     success_url = reverse_lazy("shopapp:products_list")
 
 class ProductUpdateView(UserPassesTestMixin, UpdateView):
@@ -114,14 +118,23 @@ class ProductUpdateView(UserPassesTestMixin, UpdateView):
     #         raise PermissionDenied("403 Forbidden")
 
     model = Product
-    fields = "name", "price", "description", "discount"
+    # fields = "name", "price", "description", "discount", "preview"
     template_name_suffix = "_update_form"
+    form_class = ProductForm
 
     def get_success_url(self):
         return reverse(
             "shopapp:product_details",
             kwargs={"pk":self.object.pk},
         )
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        for image in form.files.getlist("images"):
+            ProductImage.objects.create(
+                product=self.object,
+                image=image,
+            )
+        return response
 
 class ProductDeleteView(DeleteView):
     """Удаление продуктов"""
@@ -207,8 +220,8 @@ class OrdersExportView(View):
                 "id": order.pk,
                 "delivery_address": order.delivery_address,
                 "promocode": order.pomocode,
-                "user_id": order.user,
-                "product_id": order.products
+                "user_id": order.user_id,
+                "products": [product.pk for product in order.products.all()]
             }
             for order in orders
         ]
