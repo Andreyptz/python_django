@@ -250,7 +250,6 @@ class OrdersExportTestCase(TestCase):
             for order in orders
         ]
         orders_data = response.json()
-        print(orders_data['orders'], expected_data)
         self.assertEqual(
             orders_data["orders"],
             expected_data,
