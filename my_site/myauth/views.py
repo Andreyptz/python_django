@@ -7,12 +7,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.views import View
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, DetailView, UpdateView
 from .models import Profile
-
 
 class AboutMeView(TemplateView):
     template_name = "myauth/about-me.html"
+
 
 class RegisterView(CreateView):
     form_class = UserCreationForm
@@ -27,11 +27,25 @@ class RegisterView(CreateView):
         user = authenticate(
             self.request,
             username=username,
-            password=password
+            password=password,
         )
         login(request=self.request, user=user)
         return response
 
+@login_required
+def update_avatar(request):
+    if request.method == 'POST':
+        avatar = request.FILES.get('avatar')
+        if avatar:
+            request.user.profile.avatar = avatar
+            request.user.profile.save()
+            messages.success(request, 'Your avatar has been updated!')
+        else:
+            messages.error(request, 'Please select an avatar image to upload.')
+
+        return redirect('about-me')
+    else:
+        return redirect('about-me')
 
 # def login_view(request: HttpRequest) -> HttpResponse:
 #     if request.method == "GET":
@@ -51,6 +65,8 @@ class RegisterView(CreateView):
 # def logout_view(request: HttpRequest):
 #     logout(request)
 #     return redirect(reverse("myauth:login"))
+
+
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
 

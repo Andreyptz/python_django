@@ -8,5 +8,5 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = "name", "price", "description", "discount", "preview"
     images = forms.ImageField(
-        widget=forms.ClearableFileInput(attrs={"allow_multiple_selected": True})
+        widget=forms.ClearableFileInput(attrs={"multiple": True})
     )
