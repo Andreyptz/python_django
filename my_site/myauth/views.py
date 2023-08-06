@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.contrib.auth.views import LogoutView, LoginView
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, resolve_url
@@ -7,7 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse_lazy, reverse
 from django.contrib import messages
 from django.views import View
-from django.views.generic import TemplateView, CreateView, DetailView, UpdateView
+from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, ListView
 from .models import Profile
 
 class AboutMeView(TemplateView):
@@ -32,40 +34,27 @@ class RegisterView(CreateView):
         login(request=self.request, user=user)
         return response
 
-@login_required
-def update_avatar(request):
-    if request.method == 'POST':
+""" Avatar """
+class UpdateAvatarView(LoginRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
         avatar = request.FILES.get('avatar')
         if avatar:
             request.user.profile.avatar = avatar
             request.user.profile.save()
-            messages.success(request, 'Your avatar has been updated!')
-        else:
-            messages.error(request, 'Please select an avatar image to upload.')
+        return redirect('myauth:about-me')
 
-        return redirect('about-me')
-    else:
-        return redirect('about-me')
+    def get(self, request, *args, **kwargs):
+        return redirect('myauth:about-me')
 
-# def login_view(request: HttpRequest) -> HttpResponse:
-#     if request.method == "GET":
-#         if request.user.is_authenticated:
-#             return redirect('/admin/')
-#         return render(request, 'myauth/login.html')
-#
-#     username = request.POST['username']
-#     password = request.POST['password']
-#
-#     user = authenticate(request, username=username, password=password)
-#     if user is not None:
-#         login(request, user)
-#         return redirect("/admin/")
-#     return render(request, 'myauth/login.html', {"error": "Invalid login credentials"})
+class ProfileListView(ListView):
+    template_name = 'myauth/profile_list.html'
+    context_object_name = "users"
+    queryset = User.objects.all()
 
-# def logout_view(request: HttpRequest):
-#     logout(request)
-#     return redirect(reverse("myauth:login"))
-
+class ProfileDetailView(DetailView):
+    template_name = 'myauth/profile_details.html'
+    context_object_name = "user"
+    queryset = User.objects.all()
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
@@ -93,3 +82,38 @@ def get_session_view(request: HttpRequest) -> HttpResponse:
 class FooBarView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
         return JsonResponse({"foo": "bar", "spam": "eggs"})
+
+
+# @login_required
+# def update_avatar(request):
+#     if request.method == 'POST':
+#         avatar = request.FILES.get('avatar')
+#         if avatar:
+#             request.user.profile.avatar = avatar
+#             request.user.profile.save()
+#             messages.success(request, 'Your avatar has been updated!')
+#         else:
+#             messages.error(request, 'Please select an avatar image to upload.')
+#
+#         return redirect('myauth:about-me')
+#     else:
+#         return redirect('myauth:about-me')
+
+# def login_view(request: HttpRequest) -> HttpResponse:
+#     if request.method == "GET":
+#         if request.user.is_authenticated:
+#             return redirect('/admin/')
+#         return render(request, 'myauth/login.html')
+#
+#     username = request.POST['username']
+#     password = request.POST['password']
+#
+#     user = authenticate(request, username=username, password=password)
+#     if user is not None:
+#         login(request, user)
+#         return redirect("/admin/")
+#     return render(request, 'myauth/login.html', {"error": "Invalid login credentials"})
+#
+# def logout_view(request: HttpRequest):
+#     logout(request)
+#     return redirect(reverse("myauth:login"))

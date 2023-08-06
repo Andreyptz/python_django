@@ -13,17 +13,16 @@
     <p>Last name: {{user.last_name }}</p>
     <p>Email: {{user.email }}</p>
     <p>Bio: {{user.profile.bio }}</p>
-    <p>{{ user.id }}</p>
 
     {% if user.profile.avatar %}
-      <img src="user.profile.avatar.url" alt="user.first_name">
+      <img src="{{ user.profile.avatar.url }}" alt="{{ user.first_name }}">
 
     {% else %}
       <h3>Avatar not found</h3>
 
     {% endif %}
 
-    <form method="post" enctype="multipart/form-data" action="{% url update_avatar %}">
+    <form method="post" enctype="multipart/form-data" action="{% url 'myauth:update_avatar' %}">
       {% csrf_token %}
       <input type="file" name="avatar" id="user.id" value="{{user.profile.avatar}}">
       <button type="submit">Add/update avatar</button>
