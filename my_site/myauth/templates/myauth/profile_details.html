@@ -1,10 +1,27 @@
 {% extends 'myauth/base.html' %}
 
 {% block title %}
-  User: {{ user.id }}
+  {{ profile.user.username }}
 {% endblock %}
 
 {% block body %}
+  <h2>Detail</h2>
+    <p>Username: {{ profile.user.username }}</p>
+    <p>First name: {{ profile.user.first_name }}</p>
+    <p>Last name: {{ profile.user.last_name }}</p>
+    <p>Email: {{ profile.user.email }}</p>
+    <p>Bio: {{ profile.bio }}</p>
 
+  {% if profile.avatar %}
+    <img src="{{ profile.avatar.url }}">
+  {% endif %}
+
+  {% if profile.user.username == user.username or user.is_staff %}
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="file" name="avatar" id="user.id" value="{{ profile.avatar }}">
+      <button type="submit">Add/update avatar</button>
+    </form>
+  {% endif %}
 
 {% endblock %}

@@ -5,13 +5,13 @@
 {% endblock %}
 
 {% block body %}
-  <h1>Users list</h1>
-  {% for user in users %}
+  <h1>Profiles list</h1>
+  {% for profile in profiles %}
     <div>
-      <p><a href="{% url 'myauth:profile_details' id=user.id %}"
-                  >User: {{ user.username }}</a></p>
-      {% if user.profile.avatar %}
-        <img src="{{ user.profile.avatar.url }}" height=100 width=100>
+      <p><a href="{% url 'myauth:profile_details' pk=profile.id %}"
+                  >User: {{ profile.user.username }}</a></p>
+      {% if profile.user.profile.avatar %}
+        <img src="{{ profile.avatar.url }}" height=100>
       {% endif %}
     </div>
   {% endfor %}
