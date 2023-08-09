@@ -7,26 +7,27 @@
 {% block body %}
   <h1>User info</h1>
   {% if user.is_authenticated %}
-    <h2>Detail</h2>
     <p>Username: {{user.username }}</p>
     <p>First name: {{user.first_name }}</p>
     <p>Last name: {{user.last_name }}</p>
     <p>Email: {{user.email }}</p>
     <p>Bio: {{user.profile.bio }}</p>
 
-    {% if user.profile.avatar %}
-      <img src="{{ user.profile.avatar.url }}" alt="{{ user.first_name }}">
+    {% if profile %}
+      {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="{{ user.first_name }}">
 
-    {% else %}
-      <h3>Avatar not found</h3>
+      {% else %}
+        <h3>Avatar not found</h3>
 
+      {% endif %}
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="avatar" id="user.id" value="{{ profile.avatar }}">
+        <button type="submit">Add/update avatar</button>
+      </form>
     {% endif %}
-
-    <form method="post" enctype="multipart/form-data" action="{% url 'myauth:update_avatar' %}">
-      {% csrf_token %}
-      <input type="file" name="avatar" id="user.id" value="{{user.profile.avatar}}">
-      <button type="submit">Add/update avatar</button>
-    </form>
 
   {% else %}
     <h2>User is anonymous</h2>

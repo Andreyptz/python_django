@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required, permission_required, user_passes_test
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LogoutView, LoginView
+from django.core.exceptions import PermissionDenied
 from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, resolve_url
 from django.contrib.auth import authenticate, login, logout
@@ -12,9 +13,18 @@ from django.views import View
 from django.views.generic import TemplateView, CreateView, DetailView, UpdateView, ListView
 from .models import Profile
 
-class AboutMeView(TemplateView):
-    template_name = "myauth/about-me.html"
+# class AboutMeView(TemplateView):
+#     template_name = "myauth/about-me.html"
+class AboutMeView(UpdateView):
+    model = Profile
+    fields = ['avatar']
+    template_name = 'myauth/about-me.html'
+    success_url = reverse_lazy('myauth:about-me')
 
+    def get_object(self, queryset=None):
+        if hasattr(self.request.user, 'profile'):
+            return self.request.user.profile
+        return self.request.user
 
 class RegisterView(CreateView):
     form_class = UserCreationForm
@@ -34,27 +44,30 @@ class RegisterView(CreateView):
         login(request=self.request, user=user)
         return response
 
-""" Avatar """
-class UpdateAvatarView(LoginRequiredMixin, View):
-    def post(self, request, *args, **kwargs):
-        avatar = request.FILES.get('avatar')
-        if avatar:
-            request.user.profile.avatar = avatar
-            request.user.profile.save()
-        return redirect('myauth:about-me')
-
-    def get(self, request, *args, **kwargs):
-        return redirect('myauth:about-me')
 
 class ProfileListView(ListView):
+    model = Profile
     template_name = 'myauth/profile_list.html'
-    context_object_name = "users"
-    queryset = User.objects.all()
+    context_object_name = "profiles"
 
-class ProfileDetailView(DetailView):
+    def get_object(self, queryset=None):
+        super().get_object(queryset=queryset)
+        return self.request.user.profile
+
+# class ProfileDetailView(DetailView):
+#     template_name = 'myauth/profile_details.html'
+#     context_object_name = "user"
+#     queryset = User.objects.all()
+class ProfileDetailView(UserPassesTestMixin, DetailView, UpdateView):
+    def test_func(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        if obj.user.profile.user.username == self.request.user.username or self.request.user.is_staff:
+            return self.request.user.username
+
+    model = Profile
+    fields = ['avatar']
     template_name = 'myauth/profile_details.html'
-    context_object_name = "user"
-    queryset = User.objects.all()
+    success_url = reverse_lazy('myauth:profile_list')
 
 class MyLogoutView(LogoutView):
     next_page = reverse_lazy("myauth:login")
@@ -83,6 +96,18 @@ class FooBarView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
         return JsonResponse({"foo": "bar", "spam": "eggs"})
 
+
+# """ Avatar """
+# class UpdateAvatarView(LoginRequiredMixin, View):
+#     def post(self, request, *args, **kwargs):
+#         avatar = request.FILES.get('avatar')
+#         if avatar:
+#             request.user.profile.avatar = avatar
+#             request.user.profile.save()
+#         return redirect('myauth:about-me')
+#
+#     def get(self, request, *args, **kwargs):
+#         return redirect('myauth:about-me')
 
 # @login_required
 # def update_avatar(request):
