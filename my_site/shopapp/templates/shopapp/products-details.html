@@ -1,48 +1,65 @@
 {% extends 'shopapp/base.html' %}
 
+{% load i18n %}
+
 {% block title %}
-    Product #{{ product.pk }}
+    {% translate 'Product' %} #{{ product.pk }}
 {% endblock %}
 
 {% block body %}
-    <h1>Product <strong>{{ product.name }}</strong></h1>
+    <h1>{% translate 'Product' %} <strong>{{ product.name }}</strong></h1>
     <div>
-        <div>Description: <em>{{ product.description }}</em></div>
-        <div>Price: {{ product.price }}</div>
-        <div>Discount: {{ product.discount }}</div>
-        <div>Archived: {{ product.archived }}</div>
+        <div>{% translate 'Description' %}: <em>{{ product.description }}</em></div>
+        <div>{% translate 'Price' %}: {{ product.price }}</div>
+        <div>{% translate 'Discount' %}: {{ product.discount }}</div>
+        <div>{% translate 'Archived' %}: {{ product.archived }}</div>
 
         {% if product.preview %}
             <img src="{{ product.preview.url }}" alt="{{ product.preview.name }}">
         {% endif %}
-        <h3>Images:</h3>
+
+        <h3>{% translate 'Images' %}:</h3>
+
+        {% blocktranslate count images_count=product.images.all|length %}
+            There is only one image.
+            {% plural %}
+            There are {{ images_count }} images.
+        {% endblocktranslate %}
+
         <div>
             {% for img in product.images.all %}
+        <div>
+        </div>
                 <div>
                     <img src="{{ img.image.url }}" alt="{{ img.image.name }}">
                      <div>{{ img.description }}</div>
                 </div>
             {% empty %}
-                <div>No imeges uploaded yet</div>
+                <div>{% translate 'No imeges uploaded yet' %}</div>
             {% endfor %}
         </div>
 
+
     </div>
+
 
     {% if perms.shopapp.change_product %}
         <div>
             <a href="{% url 'shopapp:product_update' pk=product.pk %}"
-            >Update product</a>
+            >{% translate 'Update product' %}</a>
         </div>
     {% endif %}
 
-
+    {% url 'shopapp:product_delete' pk=product.pk as product_delete_url %}
+    {% url 'shopapp:products_list' as products_list_url %}
+    {% blocktranslate %}
     <div>
-        <a href="{% url 'shopapp:product_delete' pk=product.pk %}"
+        <a href="{{ product_delete_url }}"
         >Delete product</a>
     </div>
     <div>
-        <a href="{% url 'shopapp:products_list' %}"
+        <a href="{{ products_list_url }}"
         >Back to products list</a>
     </div>
+    {% endblocktranslate %}
 {% endblock %}
