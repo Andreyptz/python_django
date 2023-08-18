@@ -9,11 +9,37 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.filters import SearchFilter, OrderingFilter
+from django_filters.rest_framework import DjangoFilterBackend
 
 from .forms import ProductForm
 from .forms_old_1 import GroupForm
 from .models import Product, Order, ProductImage
+from .serializers import ProductSerializer, OrderSerializer
 # from .forms_old import ProductForm, OrderForm
+
+class ProductViewSet(ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+    filter_backends = [
+        SearchFilter,
+        DjangoFilterBackend,
+        OrderingFilter,
+    ]
+    search_fields = ["name", "description"]
+    filterset_fields = [
+        "name",
+        "description",
+        "price",
+        "discount",
+        "archived",
+    ]
+    ordering_fields = [
+        "name",
+        "price",
+        "discount",
+    ]
 
 class ShopIndexView(View):
     def get(self, request: HttpRequest) -> HttpResponse:
@@ -165,6 +191,27 @@ class ProductsDataExportView(View):
 """ 
 Order section 
 """
+
+class OrderViewSet(ModelViewSet):
+    queryset = Order.objects.all()
+    serializer_class = OrderSerializer
+    filter_backends = [
+        SearchFilter,
+        DjangoFilterBackend,
+        OrderingFilter,
+    ]
+    search_fields = ["delivery_address"]
+    filterset_fields = [
+        "id",
+        "delivery_address",
+        "user_id",
+        "created_at",
+    ]
+    ordering_fields = [
+        "id",
+        "delivery_address",
+        "user_id",
+    ]
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
