@@ -1,14 +1,23 @@
+from typing import Sequence
+
 from django.contrib.auth.models import User
 from django.core.management import BaseCommand
-from shopapp.models import Order
+from django.db import transaction
+from shopapp.models import Order, Product
 
 class Command(BaseCommand):
+    @transaction.atomic
     def handle(self, *args, **options):
-        self.stdout.write("Create order")
+        self.stdout.write("Create order with products")
         user = User.objects.get(username='admin')
-        order = Order.objects.get_or_create(
-            delivery_address="ul V'uznaya, d.4",
-            pomocode='Sale2020',
+        # products: Sequence[Product] = Product.objects.defer("description", "price", "created_at").all()
+        products: Sequence[Product] = Product.objects.only("id").all()
+        order, created = Order.objects.get_or_create(
+            delivery_address="ul Popova, d.2",
+            pomocode='Promo222',
             user=user,
         )
+        for product in products:
+            order.products.add(product)
+        order.save()
         self.stdout.write(f"Created order {order}")

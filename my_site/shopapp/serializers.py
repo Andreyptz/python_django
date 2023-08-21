@@ -14,6 +14,7 @@ class ProductSerializer(serializers.ModelSerializer):
             "created_at",
             "archived",
             "preview",
+            "created_by"
         )
 
 class OrderSerializer(serializers.ModelSerializer):
