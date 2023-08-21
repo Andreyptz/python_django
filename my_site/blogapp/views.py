@@ -8,7 +8,7 @@ from blogapp.models import Author, Article
 class BasedView(ListView):
     template_name = 'blogapp/article_list.html'
     context_object_name = 'articles'
-    queryset = (Author.objects.all())
+    queryset = (Article.objects.all())
 
 class ArticleCreateView(CreateView):
     template_name = 'blogapp/create_article.html'

@@ -7,11 +7,11 @@
 <body>
     {% if articles %}
         {% for article in articles %}
-            <p>{{ article.title }}</p>
-            <p>{{ article.pub_date }}</p>
-            <p>{{ article.author.name }}</p>
-            <p>{{ article.category.name }}</p>
-            <p>{{ article.tag.name }}</p>
+            <p>Title: {{ article.title }}</p>
+            <p>Publication: {{ article.pub_date }}</p>
+            <p>Author name: {{ article.author.name }}</p>
+            <p>Category: {{ article.category.name }}</p>
+            <p>Tags: {{ article.tag.id }}</p>
         {% endfor %}
 
     {% else %}
