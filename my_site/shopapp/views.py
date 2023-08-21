@@ -238,13 +238,17 @@ class OrderViewSet(ModelViewSet):
 
 class OrderListView(LoginRequiredMixin, ListView):
     queryset = (
-        Order.objects.select_related("user").prefetch_related("products")
+        Order.objects
+        .select_related("user")
+        .prefetch_related("products")
     )
 
 class OrderDetailView(PermissionRequiredMixin, DetailView):
     permission_required = "shopapp.view_order"
     queryset = (
-        Order.objects.select_related("user").prefetch_related("products")
+        Order.objects
+        .select_related("user")
+        .prefetch_related("products")
     )
 
 class OrderCreateView(CreateView):

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Articles list </title>
+</head>
+<body>
+    {% if articles %}
+        {% for article in articles %}
+            <p>{{ article.title }}</p>
+            <p>{{ article.pub_date }}</p>
+            <p>{{ article.author.name }}</p>
+            <p>{{ article.category.name }}</p>
+            <p>{{ article.tag.name }}</p>
+        {% endfor %}
+
+    {% else %}
+        <h1>No articles</h1>
+    {% endif %}
+</body>
+</html>
