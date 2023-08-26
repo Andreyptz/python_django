@@ -7,15 +7,23 @@
 <body>
     {% if articles %}
         {% for article in articles %}
-            <p>Title: {{ article.title }}</p>
+            <p><h3>Title: {{ article.title }}</h3></p>
             <p>Publication: {{ article.pub_date }}</p>
             <p>Author name: {{ article.author.name }}</p>
             <p>Category: {{ article.category.name }}</p>
-            <p>Tags: {{ article.tag.id }}</p>
+            <p>Tags:
+                {% for tag in article.tags.all %}
+                {{ tag.name }}
+                {% endfor %}</p>
         {% endfor %}
 
     {% else %}
         <h1>No articles</h1>
     {% endif %}
+
+    <div>
+        <a href="{% url 'blogapp:create_article' %}"
+        >Create a new article</a>
+    </div>
 </body>
 </html>
