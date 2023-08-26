@@ -146,3 +146,98 @@ BY "shopapp_product"."name" ASC, "shopapp_product"."price" ASC; args=(1, 2, 4, 7
 
 
 
+----
+SELECT "blogapp_article"."id",
+        "blogapp_article"."title",
+        "blogapp_article"."content",
+        "blogapp_article"."pub_date",
+        "blogapp_article"."author_id"
+FROM "blogapp_article"
+
+SELECT "blogapp_author"."id",
+        "blogapp_author"."name",
+        "blogapp_author"."bio"
+FROM "blogapp_author"
+WHERE "blogapp_author"."id" = 1
+LIMIT 21
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 1
+
+SELECT "blogapp_author"."id",
+        "blogapp_author"."name",
+        "blogapp_author"."bio"
+FROM "blogapp_author"
+WHERE "blogapp_author"."id" = 2
+LIMIT 21
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 2;
+
+SELECT "blogapp_author"."id",
+        "blogapp_author"."name",
+        "blogapp_author"."bio"
+FROM "blogapp_author"
+WHERE "blogapp_author"."id" = 2
+LIMIT 21
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 3
+
+
+---
+SELECT "blogapp_article"."id",
+        "blogapp_article"."title",
+        "blogapp_article"."content",
+        "blogapp_article"."pub_date",
+        "blogapp_article"."author_id",
+        "blogapp_author"."id",
+        "blogapp_author"."name",
+        "blogapp_author"."bio"
+FROM "blogapp_article"
+INNER JOIN "blogapp_author" ON ("blogapp_article"."author_id" = "blogapp_author"."id")
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 1
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 2
+
+SELECT "blogapp_tag"."id",
+        "blogapp_tag"."name"
+FROM "blogapp_tag"
+INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" = 3
+
+-----
+SELECT "blogapp_article"."id",
+        "blogapp_article"."title",
+        "blogapp_article"."content",
+        "blogapp_article"."pub_date",
+        "blogapp_article"."author_id",
+        "blogapp_author"."id",
+        "blogapp_author"."name",
+        "blogapp_author"."bio"
+FROM "blogapp_article"
+    INNER JOIN "blogapp_author" ON ("blogapp_article"."author_id" = "blogapp_author"."id")
+
+SELECT ("blogapp_article_tags"."article_id")
+    AS "_prefetch_related_val_article_id", "blogapp_tag"."id", "blogapp_tag"."name"
+    FROM "blogapp_tag"
+    INNER JOIN "blogapp_article_tags" ON ("blogapp_tag"."id" = "blogapp_article_tags"."tag_id")
+WHERE "blogapp_article_tags"."article_id" IN (1, 2, 3)
