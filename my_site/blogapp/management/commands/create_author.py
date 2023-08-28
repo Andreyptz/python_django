@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from blogapp.models import Article, Author, Tag
+from blogapp.models import Article, Author, Tag, Category
 
 class Command(BaseCommand):
 
@@ -18,6 +18,19 @@ class Command(BaseCommand):
 
         self.stdout.write(self.style.SUCCESS("Author created"))
 
+# КАТЕГОРИИ СТАТЕЙ
+        self.stdout.write("Create category")
+        categories = [
+            "Study",
+        ]
+
+        for category_name in categories:
+            category, created = Category.objects.get_or_create(name=category_name)
+            self.stdout.write(f'Created category {category}')
+
+        self.stdout.write(self.style.SUCCESS("Category created"))
+
+# ТЭГИ
         tags = [
             "skillbox",
             "IT",
