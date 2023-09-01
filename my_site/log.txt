@@ -1,0 +1,29 @@
+2023-08-31 15:48:42,646 [INFO] shopapp.views: Rendering shop index
+2023-08-31 15:48:42,810 [INFO] shopapp.views: Rendering shop index
+2023-08-31 15:48:42,972 [INFO] shopapp.views: Rendering shop index
+2023-08-31 15:48:43,191 [INFO] shopapp.views: Rendering shop index
+2023-08-31 15:49:23,669 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 15:49:24,195 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 15:50:37,737 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 15:50:38,319 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 15:51:06,941 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 15:51:07,740 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:04:37,077 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 16:04:37,719 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:04:50,931 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 16:04:51,475 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:05:34,612 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 16:05:35,184 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:06:12,194 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 16:06:12,693 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:06:32,745 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-08-31 16:06:33,321 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:07:36,806 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-08-31 16:07:37,314 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-08-31 16:08:18,554 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-08-31 16:08:19,142 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-01 18:33:39,398 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-01 18:33:43,276 [WARNING] django.request: Not Found: /
+2023-09-01 18:33:43,643 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-01 18:34:46,625 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-01 18:37:43,663 [INFO] django.utils.autoreload: Watching for file changes with StatReloader

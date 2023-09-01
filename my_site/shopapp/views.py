@@ -4,6 +4,7 @@
 Разные view интернет-магазина: по товарам, заказам и т.д.
 """
 
+import logging
 from timeit import default_timer
 
 import json
@@ -25,6 +26,8 @@ from .forms_old_1 import GroupForm
 from .models import Product, Order, ProductImage
 from .serializers import ProductSerializer, OrderSerializer
 # from .forms_old import ProductForm, OrderForm
+
+log = logging.getLogger(__name__)
 
 @extend_schema(description="Product Views CRUD")
 class ProductViewSet(ModelViewSet):
@@ -76,6 +79,8 @@ class ShopIndexView(View):
             "products": products,
             "items": 1,
         }
+        log.debug("Product for shop index: %s", products)
+        log.info("Rendering shop index")
         return render(request, 'shopapp/shop-index.html', context=context)
 
 

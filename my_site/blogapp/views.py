@@ -11,7 +11,7 @@ class BasedView(ListView):
     context_object_name = 'articles'
     queryset = (Article.objects
                 .defer('content')
-                .select_related("author")
+                .select_related("author", "category")
                 .prefetch_related("tags")
                 )
 
