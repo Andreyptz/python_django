@@ -29,7 +29,21 @@ SECRET_KEY = 'django-insecure-rnhr$6xrf6t_mj)1^r0*z(@^+l)ypywet(aiw$gm1h1da01(q^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "0.0.0.0",
+    "127.0.0.1"
+]
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
+
+# if DEBUG:
+#     import socket
+#     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+#     INTERNAL_IPS.append("10.0.2.2")
+#     INTERNAL_IPS.extend(
+#         [ip[: ip.rfind(".")] + ".1" for ip in ips]
+#     )
 
 
 # Application definition
@@ -43,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
 
+    'debug_toolbar',
     'rest_framework',
     'django_filters',
     'drf_spectacular',
@@ -66,6 +81,7 @@ MIDDLEWARE = [
     'requestdataapp.middlewares.CountRequestMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'my_site.urls'
@@ -158,40 +174,76 @@ LOGIN_REDIRECT_URL = reverse_lazy("myauth:about-me")
 
 LOGIN_URL = reverse_lazy("myauth:login")
 
-REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 10,
-    "DEFAULT_FILTER_BACKENDS": [
-        "django_filters.rest_framework.DjangoFilterBackend",
-    ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    }
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'My Site Project API',
-    'DESCRIPTION': 'My site with shop app and custom auth',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-}
+LOGFILE_NAME = BASE_DIR / "log.txt"
+# LOGFILE_SIZE = 400
+LOGFILE_SIZE = 1 * 1024 * 1024
+LOGFILE_COUNT = 3
 
 LOGGING = {
-    'version': 1,
-    'filters': {
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
         },
     },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
         },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'level': 'DEBUG',
-            'handlers': ['console'],
+        "logfile": {
+            # "class": "logging.handlers.TimeRotatingFileHandler",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": LOGFILE_NAME,
+            "maxBytes": LOGFILE_SIZE,
+            "backupCount": LOGFILE_COUNT,
+            "formatter": "verbose",
         }
     },
+    "root": {
+        "handlers": [
+            "console",
+            "logfile",
+        ],
+        "level": "INFO",
+    },
 }
+
+# REST_FRAMEWORK = {
+#     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+#     "PAGE_SIZE": 10,
+#     "DEFAULT_FILTER_BACKENDS": [
+#         "django_filters.rest_framework.DjangoFilterBackend",
+#     ],
+#     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+#     }
+#
+# SPECTACULAR_SETTINGS = {
+#     'TITLE': 'My Site Project API',
+#     'DESCRIPTION': 'My site with shop app and custom auth',
+#     'VERSION': '1.0.0',
+#     'SERVE_INCLUDE_SCHEMA': False,
+# }
+#
+# LOGGING = {
+#     'version': 1,
+#     'filters': {
+#         'require_debug_true': {
+#             '()': 'django.utils.log.RequireDebugTrue',
+#         },
+#     },
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'filters': ['require_debug_true'],
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'level': 'DEBUG',
+#             'handlers': ['console'],
+#         }
+#     },
+# }
