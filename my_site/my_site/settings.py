@@ -16,6 +16,13 @@ from django.urls import reverse_lazy
 
 from django.utils.translation import gettext_lazy as _
 
+import sentry_sdk
+
+sentry_sdk.init(
+    dsn="https://706756318e4e3ca025fbc079859c1825@o4505816492212224.ingest.sentry.io/4505816503353344",
+    traces_sample_rate=1.0,
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,19 +38,20 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
-    "127.0.0.1"
+    "127.0.0.1",
+    "172.26.222.1"
 ]
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-# if DEBUG:
-#     import socket
-#     hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-#     INTERNAL_IPS.append("10.0.2.2")
-#     INTERNAL_IPS.extend(
-#         [ip[: ip.rfind(".")] + ".1" for ip in ips]
-#     )
+if DEBUG:
+    import socket
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS.append("10.0.2.2")
+    INTERNAL_IPS.extend(
+        [ip[: ip.rfind(".")] + ".1" for ip in ips]
+    )
 
 
 # Application definition
@@ -153,8 +161,8 @@ LOCALE_PATHS = [
 ]
 
 LANGUAGES = [
-    ('en', _('English')),
-    ('ru', _('Russian')),
+    ('en', 'English'),
+    ('ru', 'Russian'),
 ]
 
 # Static files (CSS, JavaScript, Images)

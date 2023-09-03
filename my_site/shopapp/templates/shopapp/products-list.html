@@ -26,7 +26,7 @@
                 <p>{% translate 'Discount' %}: {% firstof product.discount no_discount %}</p>
 
                 {% if product.preview %}
-                    <img src="{{ product.preview.url }}" alt="{{ product.preview.name }}">
+                    <img src="{{ product.preview.url }}" alt="{{ product.preview.name }}" height="300">
                 {% endif %}
             </div>
         {% endfor %}
