@@ -1,0 +1,240 @@
+[
+  {
+    "model": "shopapp.product",
+    "pk": 3,
+    "fields": {
+      "created_by": 1,
+      "name": "Smartphone",
+      "description": "A laptop computer or notebook computer",
+      "price": "987.00",
+      "discount": 10,
+      "created_at": "2023-04-23T10:47:53.346Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 4,
+    "fields": {
+      "created_by": 1,
+      "name": "Tablet",
+      "description": "Create tablet",
+      "price": "1234.00",
+      "discount": 15,
+      "created_at": "2023-05-09T13:29:09.392Z",
+      "archived": false,
+      "preview": "products/product_4/preview/photo_2023-05-05_11-36-12.jpg"
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 5,
+    "fields": {
+      "created_by": 1,
+      "name": "Phone2",
+      "description": "phone 2 is better than phone 1\r\nthis is a great phone!",
+      "price": "1123.00",
+      "discount": 0,
+      "created_at": "2023-05-10T15:03:33.648Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 6,
+    "fields": {
+      "created_by": 1,
+      "name": "Phone 3",
+      "description": "Phone 3",
+      "price": "999.42",
+      "discount": 12,
+      "created_at": "2023-05-14T12:47:22.077Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 7,
+    "fields": {
+      "created_by": 1,
+      "name": "Tablet 2",
+      "description": "a new tablet",
+      "price": "1500.00",
+      "discount": 15,
+      "created_at": "2023-05-14T12:49:49.576Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 8,
+    "fields": {
+      "created_by": 1,
+      "name": "Phone2",
+      "description": "a new phone",
+      "price": "1234.00",
+      "discount": 10,
+      "created_at": "2023-05-31T05:33:58.724Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 9,
+    "fields": {
+      "created_by": 1,
+      "name": "Phone2",
+      "description": "",
+      "price": "2342.00",
+      "discount": 0,
+      "created_at": "2023-06-26T19:57:17.698Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 10,
+    "fields": {
+      "created_by": 1,
+      "name": "Desktop",
+      "description": "",
+      "price": "19191.00",
+      "discount": 0,
+      "created_at": "2023-06-26T20:08:28.669Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 11,
+    "fields": {
+      "created_by": 1,
+      "name": "PC",
+      "description": "The Best of PC",
+      "price": "1232.00",
+      "discount": 0,
+      "created_at": "2023-06-29T12:28:22.103Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 12,
+    "fields": {
+      "created_by": 1,
+      "name": "smart watch",
+      "description": "New Product!",
+      "price": "332.00",
+      "discount": 15,
+      "created_at": "2023-07-12T13:22:37.042Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 13,
+    "fields": {
+      "created_by": 1,
+      "name": "Smart Watch",
+      "description": "New Smart Watch",
+      "price": "2324.00",
+      "discount": 0,
+      "created_at": "2023-07-14T07:16:46.651Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 14,
+    "fields": {
+      "created_by": 1,
+      "name": "iPhone X",
+      "description": "iPhone 2020",
+      "price": "123123.00",
+      "discount": 0,
+      "created_at": "2023-07-14T07:18:11.657Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 15,
+    "fields": {
+      "created_by": 1,
+      "name": "Laptop",
+      "description": "A laptop computer or notebook computer, also known as a laptop or notebook for short, is a small, portable personal computer (PC). Laptops typically have a clamshell form factor with a flat panel screen (usually 11–17 in or 280–430 mm in diagonal size) on the inside of the upper lid and an alphanumeric keyboard and pointing device (such as a trackpad and/or trackpoint) on the inside of the lower lid, although 2-in-1 PCs with a detachable keyboard are often marketed as laptops or as having a \"laptop mode\".[1][2] Most of the computer's internal hardware is fitted inside the lower lid enclosure under the keyboard, although many laptops have a built-in webcam at the top of the screen and some modern ones even feature a touch-screen display. In most cases, unlike tablet computers which run on mobile operating systems, laptops tend to run on desktop operating systems which have been traditionally associated with desktop computers.",
+      "price": "1999.00",
+      "discount": 0,
+      "created_at": "2023-07-23T09:00:59.946Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 16,
+    "fields": {
+      "created_by": 2,
+      "name": "E-book",
+      "description": "Compact e-book",
+      "price": "0.00",
+      "discount": 0,
+      "created_at": "2023-08-14T14:59:26.716Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 18,
+    "fields": {
+      "created_by": 1,
+      "name": "Smartphone 1",
+      "description": "",
+      "price": "199.00",
+      "discount": 10,
+      "created_at": "2023-08-20T07:23:03.515Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 19,
+    "fields": {
+      "created_by": 1,
+      "name": "Smartphone 2",
+      "description": "",
+      "price": "299.00",
+      "discount": 10,
+      "created_at": "2023-08-20T07:23:03.515Z",
+      "archived": false,
+      "preview": ""
+    }
+  },
+  {
+    "model": "shopapp.product",
+    "pk": 20,
+    "fields": {
+      "created_by": 1,
+      "name": "Smartphone 3",
+      "description": "",
+      "price": "399.00",
+      "discount": 10,
+      "created_at": "2023-08-20T07:23:03.515Z",
+      "archived": false,
+      "preview": ""
+    }
+  }
+]
