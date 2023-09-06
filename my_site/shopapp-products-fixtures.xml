@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object model="shopapp.product" pk="3">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Smartphone</field>
+        <field name="description" type="TextField">A laptop computer or notebook computer</field>
+        <field name="price" type="DecimalField">987.00</field>
+        <field name="discount" type="SmallIntegerField">10</field>
+        <field name="created_at" type="DateTimeField">2023-04-23T10:47:53.346231+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="4">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Tablet</field>
+        <field name="description" type="TextField">Create tablet</field>
+        <field name="price" type="DecimalField">1234.00</field>
+        <field name="discount" type="SmallIntegerField">15</field>
+        <field name="created_at" type="DateTimeField">2023-05-09T13:29:09.392134+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField">products/product_4/preview/photo_2023-05-05_11-36-12.jpg</field>
+    </object>
+    <object model="shopapp.product" pk="5">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Phone2</field>
+        <field name="description" type="TextField">phone 2 is better than phone 1
+            this is a great phone!
+        </field>
+        <field name="price" type="DecimalField">1123.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-05-10T15:03:33.648016+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="6">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Phone 3</field>
+        <field name="description" type="TextField">Phone 3</field>
+        <field name="price" type="DecimalField">999.42</field>
+        <field name="discount" type="SmallIntegerField">12</field>
+        <field name="created_at" type="DateTimeField">2023-05-14T12:47:22.077437+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="7">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Tablet 2</field>
+        <field name="description" type="TextField">a new tablet</field>
+        <field name="price" type="DecimalField">1500.00</field>
+        <field name="discount" type="SmallIntegerField">15</field>
+        <field name="created_at" type="DateTimeField">2023-05-14T12:49:49.576021+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="8">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Phone2</field>
+        <field name="description" type="TextField">a new phone</field>
+        <field name="price" type="DecimalField">1234.00</field>
+        <field name="discount" type="SmallIntegerField">10</field>
+        <field name="created_at" type="DateTimeField">2023-05-31T05:33:58.724681+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="9">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Phone2</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">2342.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-06-26T19:57:17.698892+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="10">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Desktop</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">19191.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-06-26T20:08:28.669534+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="11">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">PC</field>
+        <field name="description" type="TextField">The Best of PC</field>
+        <field name="price" type="DecimalField">1232.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-06-29T12:28:22.103328+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="12">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">smart watch</field>
+        <field name="description" type="TextField">New Product!</field>
+        <field name="price" type="DecimalField">332.00</field>
+        <field name="discount" type="SmallIntegerField">15</field>
+        <field name="created_at" type="DateTimeField">2023-07-12T13:22:37.042828+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="13">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Smart Watch</field>
+        <field name="description" type="TextField">New Smart Watch</field>
+        <field name="price" type="DecimalField">2324.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-07-14T07:16:46.651770+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="14">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">iPhone X</field>
+        <field name="description" type="TextField">iPhone 2020</field>
+        <field name="price" type="DecimalField">123123.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-07-14T07:18:11.657663+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="15">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Laptop</field>
+        <field name="description" type="TextField">A laptop computer or notebook computer, also known as a laptop or
+            notebook for short, is a small, portable personal computer (PC). Laptops typically have a clamshell form
+            factor with a flat panel screen (usually 11–17 in or 280–430 mm in diagonal size) on the inside of the upper
+            lid and an alphanumeric keyboard and pointing device (such as a trackpad and/or trackpoint) on the inside of
+            the lower lid, although 2-in-1 PCs with a detachable keyboard are often marketed as laptops or as having a
+            "laptop mode".[1][2] Most of the computer's internal hardware is fitted inside the lower lid enclosure under
+            the keyboard, although many laptops have a built-in webcam at the top of the screen and some modern ones
+            even feature a touch-screen display. In most cases, unlike tablet computers which run on mobile operating
+            systems, laptops tend to run on desktop operating systems which have been traditionally associated with
+            desktop computers.
+        </field>
+        <field name="price" type="DecimalField">1999.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-07-23T09:00:59.946624+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="16">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">2</field>
+        <field name="name" type="CharField">E-book</field>
+        <field name="description" type="TextField">Compact e-book</field>
+        <field name="price" type="DecimalField">0.00</field>
+        <field name="discount" type="SmallIntegerField">0</field>
+        <field name="created_at" type="DateTimeField">2023-08-14T14:59:26.716559+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="18">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Smartphone 1</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">199.00</field>
+        <field name="discount" type="SmallIntegerField">10</field>
+        <field name="created_at" type="DateTimeField">2023-08-20T07:23:03.515182+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="19">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Smartphone 2</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">299.00</field>
+        <field name="discount" type="SmallIntegerField">10</field>
+        <field name="created_at" type="DateTimeField">2023-08-20T07:23:03.515277+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+    <object model="shopapp.product" pk="20">
+        <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+        <field name="name" type="CharField">Smartphone 3</field>
+        <field name="description" type="TextField"></field>
+        <field name="price" type="DecimalField">399.00</field>
+        <field name="discount" type="SmallIntegerField">10</field>
+        <field name="created_at" type="DateTimeField">2023-08-20T07:23:03.515317+00:00</field>
+        <field name="archived" type="BooleanField">False</field>
+        <field name="preview" type="FileField"></field>
+    </object>
+</django-objects>
