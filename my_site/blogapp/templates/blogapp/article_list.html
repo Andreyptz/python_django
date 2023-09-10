@@ -1,29 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title> Articles list </title>
-</head>
-<body>
-    {% if articles %}
-        {% for article in articles %}
-            <p><h3>Title: {{ article.title }}</h3></p>
-            <p>Publication: {{ article.pub_date }}</p>
-            <p>Author name: {{ article.author.name }}</p>
-            <p>Category: {{ article.category.name }}</p>
-            <p>Tags:
-                {% for tag in article.tags.all %}
-                {{ tag.name }}
-                {% endfor %}</p>
-        {% endfor %}
+{% extends 'blogapp/base.html' %}
 
-    {% else %}
-        <h1>No articles</h1>
-    {% endif %}
+    {% block title %}
+        Articles
+    {% endblock %}
 
-    <div>
-        <a href="{% url 'blogapp:create_article' %}"
-        >Create a new article</a>
-    </div>
-</body>
-</html>
+
+    {% block body %}
+        <h1>Articles</h1>
+        {% if object_list %}
+            <div>
+            {% for article in object_list %}
+                <div>
+                    <p>
+                        <a href="{% url 'blogapp:article' pk=article.pk %}">{{ article.title }}</a>
+                    </p>
+                    <p>Published: {{ article.pub_date }}</p>
+                </div>
+<!--                    <p><h3>Title: {{ article.title }}</h3></p>-->
+<!--                    <p>Publication: {{ article.pub_date }}</p>-->
+<!--                    <p>Author name: {{ article.author.name }}</p>-->
+<!--                    <p>Category: {{ article.category.name }}</p>-->
+<!--                    <p>Tags:-->
+<!--                        {% for tag in article.tags.all %}-->
+<!--                        {{ tag.name }}-->
+<!--                        {% endfor %}</p>-->
+            {% endfor %}
+            </div>
+        {% else %}
+            <h1>No published articles yet</h1>
+        {% endif %}
+
+<!--        <div>-->
+<!--            <a href="{% url 'blogapp:create_article' %}"-->
+<!--            >Create a new article</a>-->
+<!--        </div>-->
+    {% endblock %}

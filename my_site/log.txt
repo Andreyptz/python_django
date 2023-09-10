@@ -953,3 +953,858 @@ Traceback (most recent call last):
 ValueError: Cannot assign "'admin'": "Product.created_by" must be a "User" instance.
 2023-09-06 18:31:24,318 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
 2023-09-06 18:31:25,077 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:45:45,197 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.IntegrityError: NOT NULL constraint failed: shopapp_product.created_by_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 93, in import_csv
+    Product.objects.bulk_create(products)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 816, in bulk_create
+    returned_columns = self._batched_insert(
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1817, in _batched_insert
+    self._insert(
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 1791, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1660, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 252, in execute
+    return self._record(super().execute, sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/debug_toolbar/panels/sql/tracking.py", line 177, in _record
+    return method(sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 102, in execute
+    return super().execute(sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/__init__.py", line 616, in execute
+    return real_execute(self, sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/backends/sqlite3/base.py", line 357, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.IntegrityError: NOT NULL constraint failed: shopapp_product.created_by_id
+2023-09-06 18:46:40,070 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 89, in import_csv
+    products = [
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 90, in <listcomp>
+    Product(**row)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/base.py", line 541, in __init__
+    _setattr(self, field.name, rel_obj)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 237, in __set__
+    raise ValueError(
+ValueError: Cannot assign "'1'": "Product.created_by" must be a "User" instance.
+2023-09-06 18:51:26,985 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:51:27,700 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:51:53,859 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:51:54,589 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:52:01,454 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 93, in import_csv
+    products.created_by = "admin"
+AttributeError: 'list' object has no attribute 'created_by'
+2023-09-06 18:52:33,704 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:52:34,505 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:52:36,948 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 93, in import_csv
+    products.created_by = 1
+AttributeError: 'list' object has no attribute 'created_by'
+2023-09-06 18:53:04,804 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:53:05,629 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:53:07,782 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 93, in import_csv
+    products.created_by = "1"
+AttributeError: 'list' object has no attribute 'created_by'
+2023-09-06 18:53:35,031 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:53:35,798 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:54:20,188 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:54:20,900 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:54:56,784 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-06 18:54:57,527 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:55:03,831 [ERROR] django.request: Internal Server Error: /admin/shopapp/product/import-products-csv/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/admin.py", line 95, in import_csv
+    products.created_by = created_by
+AttributeError: 'list' object has no attribute 'created_by'
+2023-09-06 18:55:26,251 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:57:55,948 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-06 18:58:10,761 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-07 13:42:35,908 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:29:35,919 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:29:36,962 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:29:47,753 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:29:48,626 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:30:20,098 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:30:20,837 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:30:44,003 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:30:44,821 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:32:51,731 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:32:52,334 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:33:53,211 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:33:53,828 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 05:34:59,863 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 05:35:00,501 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 06:06:53,824 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-08 15:05:43,448 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:05:44,093 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:06:09,067 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:06:09,897 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:06:25,774 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:06:26,430 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:06:45,326 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:06:46,337 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:07:04,264 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:07:04,996 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:07:31,136 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:07:31,742 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:07:57,815 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:07:58,510 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:08:21,663 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:08:22,332 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:08:38,139 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:08:38,870 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:09:05,946 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:09:06,587 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:09:29,540 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:09:30,347 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:10:03,581 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:10:04,211 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:10:32,363 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:10:33,075 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:11:19,701 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:11:20,498 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:12:00,823 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:12:01,542 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:12:22,525 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:12:23,251 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:12:48,316 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:12:48,967 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:13:00,718 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:13:01,289 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:17:22,470 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-08 15:17:23,008 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:21:05,213 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:21:05,956 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:21:24,603 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:21:25,234 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:21:42,837 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:21:43,569 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:22:12,310 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:22:13,039 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:22:42,233 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:22:42,979 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:23:56,118 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:23:56,989 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:24:16,981 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:24:17,728 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:25:14,472 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:25:15,221 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:25:32,166 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:25:32,802 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:27:56,536 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-08 15:27:57,188 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:38:15,278 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:48:38,403 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/common.py changed, reloading.
+2023-09-08 15:48:39,070 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-08 15:52:03,547 [WARNING] django.request: Method Not Allowed: /ru/shop/api/products/upload_csv/
+2023-09-09 05:05:32,249 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 05:05:33,029 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:07:07,418 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/models.py changed, reloading.
+2023-09-09 05:07:08,150 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:10:21,406 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 05:10:22,050 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:13:30,397 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 05:13:31,259 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:14:39,341 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 05:14:40,072 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:15:01,987 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 05:15:02,778 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:15:52,469 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 05:15:53,100 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:16:37,588 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 05:16:38,352 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:16:44,279 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 05:17:29,173 [WARNING] django.request: Not Found: /blog/arcticles
+2023-09-09 08:43:25,513 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 08:43:26,819 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:50:08,256 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 08:50:09,001 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:50:18,623 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:50:57,317 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 08:50:57,961 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:51:01,970 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:51:08,063 [ERROR] django.request: Internal Server Error: /blog/articles/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: '<extends'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 1: '<extends'. Did you forget to register or load this tag?
+2023-09-09 08:52:57,649 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/admin.py changed, reloading.
+2023-09-09 08:52:58,474 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:53:54,435 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/admin.py changed, reloading.
+2023-09-09 08:53:55,213 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 08:56:33,708 [ERROR] django.request: Internal Server Error: /blog/articles/2/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 489, in parse
+    command = token.contents.split()[0]
+IndexError: list index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 491, in parse
+    raise self.error(token, "Empty block tag on line %d" % token.lineno)
+django.template.exceptions.TemplateSyntaxError: Empty block tag on line 1
+2023-09-09 09:00:45,073 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:03:34,040 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:03:34,783 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:04:14,376 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:04:15,161 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:04:30,302 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:04:30,965 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:04:52,221 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:04:52,971 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:05:15,111 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:05:15,860 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:05:31,902 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:05:32,581 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:05:53,707 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:05:54,473 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:06:07,433 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:06:08,115 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:06:41,600 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:06:42,293 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:07:07,521 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:07:08,259 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:07:24,302 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:07:25,046 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:07:47,288 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:07:47,921 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:07:57,776 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:07:58,506 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:08:37,208 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:08:37,907 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:09:02,268 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:09:03,112 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:09:29,441 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:09:30,110 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:10:00,530 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:10:01,299 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:10:55,354 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:10:56,010 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:11:46,159 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:11:46,993 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:12:24,609 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 09:12:25,346 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:12:43,525 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 09:12:44,212 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:13:34,132 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/urls.py changed, reloading.
+2023-09-09 09:13:34,947 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 09:13:56,905 [ERROR] django.request: Internal Server Error: /blog/articles/latest/feed/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 40, in __call__
+    feedgen = self.get_feed(obj, request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 191, in get_feed
+    description = self._get_dynamic_attr("item_description", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 103, in _get_dynamic_attr
+    return attr(obj)
+  File "/home/andrey/python_django/my_site/blogapp/views.py", line 35, in item_description
+    return item.conent[:300]
+AttributeError: 'Article' object has no attribute 'conent'
+2023-09-09 09:14:31,140 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 09:14:31,867 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:00:50,231 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/models.py changed, reloading.
+2023-09-09 13:00:51,038 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:05:52,498 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/models.py changed, reloading.
+2023-09-09 13:05:53,267 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:06:19,988 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/models.py changed, reloading.
+2023-09-09 13:06:20,732 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:06:31,643 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/models.py changed, reloading.
+2023-09-09 13:06:32,378 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:07:35,228 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/views.py changed, reloading.
+2023-09-09 13:07:35,908 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:09:07,235 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 13:09:07,905 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:17:30,231 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 13:17:31,060 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:18:02,388 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 13:18:03,263 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:19:33,430 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 13:19:34,206 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:20:27,029 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/urls.py changed, reloading.
+2023-09-09 13:20:27,747 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:20:45,538 [WARNING] django.request: Not Found: /
+2023-09-09 13:21:35,964 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/settings.py changed, reloading.
+2023-09-09 13:21:36,791 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:21:58,978 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 132, in sitemap
+    lastmod = _get_latest_lastmod(lastmod, site_lastmod)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 47, in _get_latest_lastmod
+    new_lastmod = datetime.datetime.combine(new_lastmod, datetime.time.min)
+TypeError: combine() argument 1 must be datetime.date, not int
+2023-09-09 13:27:19,983 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/sitemap.py changed, reloading.
+2023-09-09 13:27:20,699 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:46:24,937 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/models.py changed, reloading.
+2023-09-09 13:46:25,841 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:47:10,357 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/models.py changed, reloading.
+2023-09-09 13:47:11,132 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:48:00,809 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/sitemap.py changed, reloading.
+2023-09-09 13:48:01,499 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:49:09,361 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/blogapp/sitemap.py changed, reloading.
+2023-09-09 13:49:10,061 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 13:55:35,451 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/sitemaps.py changed, reloading.
+2023-09-09 13:55:36,175 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:01:21,873 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-09 14:01:22,574 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:03:42,548 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/urls.py changed, reloading.
+2023-09-09 14:03:43,343 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:04:35,631 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 163, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 183, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 118, in _location
+    return self._get("location", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 128, in location
+    return item.get_absolute_url()
+  File "/home/andrey/python_django/my_site/shopapp/models.py", line 47, in get_absolute_url
+    return reverse("shopapp:products_list", kwargs={"pk": self.pk})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_list' with keyword arguments '{'pk': 24}' not found. 1 pattern(s) tried: ['ru/shop/products/\\Z']
+2023-09-09 14:08:48,961 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-09 14:08:49,754 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:08:52,287 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 163, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 183, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 118, in _location
+    return self._get("location", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 128, in location
+    return item.get_absolute_url()
+  File "/home/andrey/python_django/my_site/shopapp/models.py", line 47, in get_absolute_url
+    return reverse("shopapp:products_list", kwargs={"pk": self.pk})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_list' with keyword arguments '{'pk': 24}' not found. 1 pattern(s) tried: ['ru/shop/products/\\Z']
+2023-09-09 14:10:26,831 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/sitemaps.py changed, reloading.
+2023-09-09 14:10:27,561 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:10:37,351 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/sitemaps.py changed, reloading.
+2023-09-09 14:10:38,064 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 14:10:39,182 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 163, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 183, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 118, in _location
+    return self._get("location", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 128, in location
+    return item.get_absolute_url()
+  File "/home/andrey/python_django/my_site/shopapp/models.py", line 47, in get_absolute_url
+    return reverse("shopapp:products_list", kwargs={"pk": self.pk})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_list' with keyword arguments '{'pk': 24}' not found. 1 pattern(s) tried: ['ru/shop/products/\\Z']
+2023-09-09 17:22:07,769 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 163, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 183, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 118, in _location
+    return self._get("location", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 128, in location
+    return item.get_absolute_url()
+  File "/home/andrey/python_django/my_site/shopapp/models.py", line 47, in get_absolute_url
+    return reverse("shopapp:products_list", kwargs={"pk": self.pk})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_list' with keyword arguments '{'pk': 24}' not found. 1 pattern(s) tried: ['ru/shop/products/\\Z']
+2023-09-09 17:24:04,808 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/my_site/sitemaps.py changed, reloading.
+2023-09-09 17:24:05,530 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 17:24:06,919 [ERROR] django.request: Internal Server Error: /sitemap.xml
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 34, in inner
+    response = func(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/views.py", line 128, in sitemap
+    urls.extend(site.get_urls(page=page, site=req_site, protocol=req_protocol))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 163, in get_urls
+    return self._urls(page, protocol, domain)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 183, in _urls
+    loc = f"{protocol}://{domain}{self._location(item)}"
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 118, in _location
+    return self._get("location", item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 92, in _get
+    return attr(item)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/sitemaps/__init__.py", line 128, in location
+    return item.get_absolute_url()
+  File "/home/andrey/python_django/my_site/shopapp/models.py", line 47, in get_absolute_url
+    return reverse("shopapp:products_list", kwargs={"pk": self.pk})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'products_list' with keyword arguments '{'pk': 24}' not found. 1 pattern(s) tried: ['ru/shop/products/\\Z']
+2023-09-09 17:28:02,417 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/models.py changed, reloading.
+2023-09-09 17:28:03,100 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 17:29:02,495 [ERROR] django.request: Internal Server Error: /ru/shop/products/latest/feed/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 40, in __call__
+    feedgen = self.get_feed(obj, request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 143, in get_feed
+    link = add_domain(current_site.domain, link, request.is_secure())
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 17, in add_domain
+    if url.startswith("//"):
+AttributeError: 'NoneType' object has no attribute 'startswith'
+2023-09-09 17:29:14,087 [ERROR] django.request: Internal Server Error: /ru/shop/products/latest/feed/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 40, in __call__
+    feedgen = self.get_feed(obj, request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 143, in get_feed
+    link = add_domain(current_site.domain, link, request.is_secure())
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 17, in add_domain
+    if url.startswith("//"):
+AttributeError: 'NoneType' object has no attribute 'startswith'
+2023-09-09 17:30:32,886 [ERROR] django.request: Internal Server Error: /ru/shop/products/latest/feed/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 40, in __call__
+    feedgen = self.get_feed(obj, request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 143, in get_feed
+    link = add_domain(current_site.domain, link, request.is_secure())
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/contrib/syndication/views.py", line 17, in add_domain
+    if url.startswith("//"):
+AttributeError: 'NoneType' object has no attribute 'startswith'
+2023-09-09 17:32:40,344 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-09 17:32:41,089 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 17:33:23,702 [WARNING] django.request: Not Found: /blogapp/articles/latest/feed/
+2023-09-09 17:34:54,472 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-09 17:34:55,208 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 17:35:47,841 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-09 17:35:48,565 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-09 17:42:58,653 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-09 17:42:59,394 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:18:32,365 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:19:24,537 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:19:25,307 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:19:26,864 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'import_orders_csv' not found. 'import_orders_csv' is not a valid view function or pattern name.
+2023-09-10 05:19:50,499 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:19:51,281 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:22:18,506 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:22:19,199 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:22:24,104 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 74, in resolve_template
+    return get_template(template, using=self.using)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: shopapp/order_changelist.html
+2023-09-10 05:22:48,182 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:22:48,971 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:22:50,205 [ERROR] django.request: Internal Server Error: /admin/shopapp/order/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 38, in sentry_patched_render
+    return old_render(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/templates.py", line 75, in rendered_content
+    return real_rendered_content.fget(self)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 175, in render
+    return self._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 157, in render
+    return compiled_parent._render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/test/utils.py", line 111, in instrumented_test_render
+    return self.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 63, in render
+    result = block.nodelist.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/base.py", line 966, in render_annotated
+    return self.render(context)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 471, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'import_orders_csv' not found. 'import_orders_csv' is not a valid view function or pattern name.
+2023-09-10 05:28:04,667 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:28:05,361 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-10 05:34:55,986 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/admin.py changed, reloading.
+2023-09-10 05:34:56,661 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
