@@ -1,0 +1,21 @@
+name,description,price,discount,created_by_id
+Desktop,,19191.00,0,1
+E-book,Compact e-book,0.00,0,2
+Laptop,"A laptop computer or notebook computer, also known as a laptop or notebook for short, is a small, portable personal computer (PC). Laptops typically have a clamshell form factor with a flat panel screen (usually 11–17 in or 280–430 mm in diagonal size) on the inside of the upper lid and an alphanumeric keyboard and pointing device (such as a trackpad and/or trackpoint) on the inside of the lower lid, although 2-in-1 PCs with a detachable keyboard are often marketed as laptops or as having a ""laptop mode"".[1][2] Most of the computer's internal hardware is fitted inside the lower lid enclosure under the keyboard, although many laptops have a built-in webcam at the top of the screen and some modern ones even feature a touch-screen display. In most cases, unlike tablet computers which run on mobile operating systems, laptops tend to run on desktop operating systems which have been traditionally associated with desktop computers.",1999.00,0,1
+Laptop 14,A new one,2299.00,5,1
+Laptop 16,A bigger one,2699.00,7,1
+PC,The Best of PC,1232.00,0,1
+Phone 3,Phone 3,999.42,12,1
+Phone2,"phone 2 is better than phone 1
+this is a great phone!",1123.00,0,1
+Phone2,a new phone,1234.00,10,1
+Phone2,,2342.00,0,1
+Smart Watch,New Smart Watch,2324.00,0,1
+Smartphone,A laptop computer or notebook computer,987.00,10,1
+Smartphone 1,,199.00,10,1
+Smartphone 2,,299.00,10,1
+Smartphone 3,,399.00,10,1
+Tablet,Create tablet,1234.00,15,1
+Tablet 2,a new tablet,1500.00,15,1
+iPhone X,iPhone 2020,123123.00,0,1
+smart watch,New Product!,332.00,15,1

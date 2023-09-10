@@ -6,9 +6,11 @@
 
 import logging
 from timeit import default_timer
+from csv import DictWriter
 
 import json
 from django.contrib.auth.models import Group, Permission, User
+from django.contrib.syndication.views import Feed
 from django.core.exceptions import PermissionDenied
 from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, reverse, get_object_or_404
@@ -16,11 +18,16 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from rest_framework.parsers import MultiPartParser
+from rest_framework.request import Request
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 
+from .common import save_csv_products
 from .forms import ProductForm
 from .forms_old_1 import GroupForm
 from .models import Product, Order, ProductImage
@@ -55,6 +62,44 @@ class ProductViewSet(ModelViewSet):
         "price",
         "discount",
     ]
+
+    @action(methods=['get'], detail=False)
+    def download_csv(self, requests: Request):
+
+        response = HttpResponse(content_type="text/csv")
+        filename = "products-export.csv"
+        response["Content-Disposition"] = f"attachment; filename={filename}"
+        queryset = self.filter_queryset(self.get_queryset())
+        fields = [
+            "name",
+            "description",
+            "price",
+            "discount",
+            "created_by_id",
+        ]
+        queryset = queryset.only(*fields)
+        writer = DictWriter(response, fieldnames=fields)
+        writer.writeheader()
+
+        for product in queryset:
+            writer.writerow({
+                field: getattr(product, field)
+                for field in fields
+            })
+        return response
+
+    @action(
+        detail=False,
+        methods=["post"],
+        parser_classes=[MultiPartParser]
+    )
+    def upload_csv(self, request: Request):
+        products = save_csv_products(
+            request.FILES["file"].file,
+            encoding=request.encoding,
+        )
+        serializer = self.get_serializer(products, many=True)
+        return Response(serializer.data)
 
     @extend_schema(
         summary="Get one product by ID",
@@ -218,6 +263,24 @@ class ProductsDataExportView(View):
         name = elem["name"]
         print('name:', name)
         return JsonResponse({"products": products_data})
+
+class LatestProductsFeed(Feed):
+    title = "Products (new)"
+    description = "Update on changes and additions products list"
+    link = reverse_lazy("shopapp:products_list")
+
+    def items(self):
+        return (
+            Product.objects
+            .filter(created_at__isnull=False)
+            .order_by("-created_at")[:5]
+        )
+
+    def item_title(self, item: Product):
+        return item.name
+
+    def item_description(self, item: Product):
+        return item.description[:100]
 
 """ 
 Order section 
