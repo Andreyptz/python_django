@@ -20,7 +20,9 @@ from .views import (
     ProductViewSet,
     OrderViewSet,
     LatestProductsFeed,
+    UserOrdersListView,
 )
+from django.views.decorators.cache import cache_page
 
 app_name = "shopapp"
 
@@ -29,6 +31,7 @@ routers.register("products", ProductViewSet)
 routers.register("orders", OrderViewSet)
 
 urlpatterns = [
+    # path('', cache_page(60*3)(ShopIndexView.as_view()), name="index"),
     path('', ShopIndexView.as_view(), name="index"),
     path('api/', include(routers.urls)),
     path('groups/', GroupListView.as_view(), name='groups_list'),
@@ -45,4 +48,5 @@ urlpatterns = [
     path('order/<int:pk>/update/', OrderUpdateView.as_view(), name="order_update"),
     path('order/<int:pk>/archive/', OrderDeleteView.as_view(), name="order_delete"),
     path('order/export/', OrdersExportView.as_view(), name='orders-export'),
+    path('users/<int:user_id>/orders/', UserOrdersListView.as_view(), name='users_order'),
 ]

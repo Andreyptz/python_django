@@ -1,4 +1,5 @@
 {% extends 'myauth/base.html' %}
+{% load cache %}
 
 {% block title %}
   About me
@@ -6,12 +7,17 @@
 
 {% block body %}
   <h1>User info</h1>
+  <div>
+    Products available: {% now "u" %}
+  </div>
   {% if user.is_authenticated %}
-    <p>Username: {{user.username }}</p>
-    <p>First name: {{user.first_name }}</p>
-    <p>Last name: {{user.last_name }}</p>
-    <p>Email: {{user.email }}</p>
-    <p>Bio: {{user.profile.bio }}</p>
+    {% cache 300 userinfo user.username %}
+      <p>Username: {{user.username }}</p>
+      <p>First name: {{user.first_name }}</p>
+      <p>Last name: {{user.last_name }}</p>
+      <p>Email: {{user.email }}</p>
+      <p>Bio: {{user.profile.bio }}</p>
+    {% endcache %}
 
     {% if profile %}
       {% if profile.avatar %}
@@ -32,4 +38,10 @@
   {% else %}
     <h2>User is anonymous</h2>
   {% endif %}
+
+  <div>
+      <a href="{% url 'myauth:logout' %}"
+      >Выход пользователя</a>
+  </div>
+
 {% endblock %}

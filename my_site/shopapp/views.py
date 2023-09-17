@@ -9,13 +9,18 @@ from timeit import default_timer
 from csv import DictWriter
 
 import json
+
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, Permission, User
 from django.contrib.syndication.views import Feed
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse, Http404
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.core.cache import cache
 from django.urls import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views import View
+from django.views.decorators.cache import cache_page
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from rest_framework.parsers import MultiPartParser
@@ -62,6 +67,11 @@ class ProductViewSet(ModelViewSet):
         "price",
         "discount",
     ]
+
+    @method_decorator(cache_page(60*2))
+    def list(self, *args, **kwargs):
+        # print("hello products list")
+        return super().list(*args, **kwargs)
 
     @action(methods=['get'], detail=False)
     def download_csv(self, requests: Request):
@@ -113,6 +123,7 @@ class ProductViewSet(ModelViewSet):
         return super().retrieve(*args, **kwargs)
 
 class ShopIndexView(View):
+    # @method_decorator(cache_page(60*2))
     def get(self, request: HttpRequest) -> HttpResponse:
         products = [
             ('Laptop', 1999),
@@ -124,6 +135,7 @@ class ShopIndexView(View):
             "products": products,
             "items": 1,
         }
+        print("shop index context", context)
         log.debug("Product for shop index: %s", products)
         log.info("Rendering shop index")
         return render(request, 'shopapp/shop-index.html', context=context)
@@ -249,19 +261,23 @@ class ProductDeleteView(DeleteView):
 
 class ProductsDataExportView(View):
     def get(self, request: HttpRequest) -> JsonResponse:
-        products = Product.objects.order_by("pk").all()
-        products_data = [
-            {
-                "pk": product.pk,
-                "name": product.name,
-                "price": product.price,
-                "archived": product.archived
-            }
-            for product in products
-        ]
-        elem = products_data[0]
-        name = elem["name"]
-        print('name:', name)
+        cache_key = "products_data_export"
+        products_data = cache.get(cache_key)
+        if products_data is None:
+            products = Product.objects.order_by("pk").all()
+            products_data = [
+                {
+                    "pk": product.pk,
+                    "name": product.name,
+                    "price": product.price,
+                    "archived": product.archived
+                }
+                for product in products
+            ]
+            cache.set(cache_key, products_data, 300)
+        # elem = products_data[0]
+        # name = elem["name"]
+        # print('name:', name)
         return JsonResponse({"products": products_data})
 
 class LatestProductsFeed(Feed):
@@ -372,3 +388,20 @@ class OrdersExportView(View):
             for order in orders
         ]
         return JsonResponse({"orders": orders_data})
+
+""" User Orders """
+
+class UserOrdersListView(ListView):
+    template_name = "shopapp/user_orders.html"
+
+    def get_queryset(self):
+        user_id = self.kwargs['user_id']
+        if not self.request.user.id:
+            raise Http404("Просмотр недоступен")
+        self.owner = Order.objects.get(pk=user_id)
+        return Order.objects.filter(user_id=user_id)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['owner'] = self.owner
+        return context

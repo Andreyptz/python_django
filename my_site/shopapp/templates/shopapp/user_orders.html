@@ -1,0 +1,31 @@
+{% extends 'shopapp/base.html' %}
+{% load cache %}
+
+{% block title %}
+    {{ user.username }}
+{% endblock %}
+
+{% block body %}
+    <h2>
+        Пользователь {{ user.username }} выполнил следующие заказы:
+    </h2>
+    {% if object_list %}
+        {% cache 300 owner_orders owner.pk %}
+        {% for order in object_list %}
+            <h3>Адрес заказа: {{ order.delivery_address }}</h3>
+            <p>
+                {% if order.pomocode %}
+                    <h3>Промокод:</h3> {{ order.pomocode }}
+                {% endif %}
+            </p>
+            <p><h3>Товар:</h3>
+            {% for product in order.products.all %}
+                <p>{{ product.name }},</p>
+            {% endfor %}
+            </p>
+        {% endfor %}
+        {% endcache %}
+    {% else %}
+        <div>У пользователя {{ user.username }} ещё нет заказов.</div>
+    {% endif %}
+{% endblock %}
