@@ -398,10 +398,33 @@ class UserOrdersListView(ListView):
         user_id = self.kwargs['user_id']
         if not self.request.user.id:
             raise Http404("Просмотр недоступен")
-        self.owner = Order.objects.get(pk=user_id)
+        self.owner = User.objects.get(pk=user_id)
         return Order.objects.filter(user_id=user_id)
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['owner'] = self.owner
         return context
+
+class UserOrderExport(View):
+
+    def get(self, request: HttpRequest, user_id) -> JsonResponse:
+        cache_key = f"user_orders_data_export {user_id}"
+        user_data = cache.get(cache_key)
+
+        try:
+            user_orders = Order.objects.filter(user_id=user_id).order_by("pk").all()
+        except Order.DoesNotExist:
+            return ("Пользователь не найден!")
+        if user_data is None:
+            user_orders_data = [
+                {
+                    'order_id': order.id,
+                    'delivery_address': order.delivery_address,
+                    'products': [product.name for product in order.products.all()],
+                }
+                for order in user_orders
+            ]
+            cache.set = (cache_key, user_data, 300)
+
+        return JsonResponse({"user_id": user_id, 'orders': user_orders_data})
