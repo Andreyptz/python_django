@@ -21,6 +21,7 @@ from .views import (
     OrderViewSet,
     LatestProductsFeed,
     UserOrdersListView,
+    UserOrderExport,
 )
 from django.views.decorators.cache import cache_page
 
@@ -49,4 +50,5 @@ urlpatterns = [
     path('order/<int:pk>/archive/', OrderDeleteView.as_view(), name="order_delete"),
     path('order/export/', OrdersExportView.as_view(), name='orders-export'),
     path('users/<int:user_id>/orders/', UserOrdersListView.as_view(), name='users_order'),
+    path('users/<int:user_id>/orders/export/', UserOrderExport.as_view(), name='users_order_export'),
 ]

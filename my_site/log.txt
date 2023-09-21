@@ -6002,3 +6002,774 @@ AttributeError: 'Order' object has no attribute 'username'
 2023-09-17 16:19:26,937 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-09-17 16:23:20,785 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
 2023-09-17 16:23:21,405 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:52:38,914 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:52:39,453 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:52:48,157 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    print(self.owner.name)
+AttributeError: 'Order' object has no attribute 'name'
+2023-09-17 17:53:03,984 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:53:04,603 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:53:09,007 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    print(self.owner.username)
+AttributeError: 'Order' object has no attribute 'username'
+2023-09-17 17:53:23,692 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:53:24,398 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:54:04,453 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:54:05,005 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:54:29,504 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:54:30,181 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:55:16,919 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:55:17,941 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 17:59:44,855 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 17:59:45,325 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:03:35,205 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:03:35,828 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:03:41,392 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 400, in get_queryset
+    print(user.user_id)
+AttributeError: 'QuerySet' object has no attribute 'user_id'
+2023-09-17 18:04:15,412 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:04:16,120 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:04:17,504 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 399, in get_queryset
+    print(Order.user.user_id)
+AttributeError: 'ForwardManyToOneDescriptor' object has no attribute 'user_id'
+2023-09-17 18:05:54,465 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:05:55,148 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:05:56,593 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 399, in get_queryset
+    print(Order.objects.user_id('user_id'))
+AttributeError: 'Manager' object has no attribute 'user_id'
+2023-09-17 18:06:04,336 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:06:05,083 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:06:12,927 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:06:13,569 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:07:19,633 [WARNING] django.request: Not Found: /ru/shop/users/2/orders/
+2023-09-17 18:08:42,672 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:08:43,334 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:09:02,070 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:09:02,738 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:09:25,677 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:09:26,322 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:09:51,618 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:10:22,388 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:12:08,138 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:12:08,631 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:12:38,080 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:12:38,689 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:13:25,725 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:13:26,331 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:14:14,233 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:14:14,860 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:14:34,645 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:14:34,764 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:15:02,176 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:15:02,934 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:15:29,154 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:15:29,931 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:15:38,452 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:15:38,562 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 402, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:16:40,136 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:16:40,863 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:16:42,499 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 174, in get
+    context = self.get_context_data()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 408, in get_context_data
+    context['owner'] = self.owner
+AttributeError: 'UserOrdersListView' object has no attribute 'owner'
+2023-09-17 18:17:01,171 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:17:01,880 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:17:02,900 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 403, in get_queryset
+    self.owner = Order.objects.get(user_id=1)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:17:12,079 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:17:12,806 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:17:14,416 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 403, in get_queryset
+    self.owner = Order.objects.get(user_id=10)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 650, in get
+    raise self.model.DoesNotExist(
+shopapp.models.Order.DoesNotExist: Order matching query does not exist.
+2023-09-17 18:17:33,225 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:17:33,915 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:18:25,417 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:18:26,147 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-17 18:18:34,005 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 401, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:18:34,181 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/list.py", line 154, in get
+    self.object_list = self.get_queryset()
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 401, in get_queryset
+    self.owner = Order.objects.get(user_id=user_id)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/db/models/query.py", line 653, in get
+    raise self.model.MultipleObjectsReturned(
+shopapp.models.Order.MultipleObjectsReturned: get() returned more than one Order -- it returned 10!
+2023-09-17 18:18:45,327 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-17 18:18:46,257 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-18 05:37:28,968 [WARNING] urllib3.connectionpool: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7fb4a9f783a0>: Failed to resolve 'o4505816492212224.ingest.sentry.io' ([Errno -3] Temporary failure in name resolution)")': /api/4505816503353344/envelope/
+2023-09-18 05:37:46,885 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-18 05:37:47,967 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-18 05:46:26,837 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-18 05:46:27,500 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 14:41:37,074 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 14:41:38,592 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 14:41:41,387 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-20 14:43:45,345 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/urls.py changed, reloading.
+2023-09-20 14:43:46,038 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 14:47:07,406 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 14:47:08,191 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:06:39,793 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/urls.py changed, reloading.
+2023-09-20 15:06:40,409 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:08:02,292 [WARNING] django.request: Not Found: /shop/orders/export
+2023-09-20 15:08:34,954 [WARNING] django.request: Not Found: /shopapp/orders/export
+2023-09-20 15:09:42,869 [WARNING] django.request: Not Found: /ru/shop/product/export/
+2023-09-20 15:11:17,101 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/urls.py changed, reloading.
+2023-09-20 15:11:17,873 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:13:27,746 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:13:28,442 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:13:47,691 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:15:48,467 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:15:49,171 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:15:50,814 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:16:09,594 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:16:10,343 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:16:12,693 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:16:31,481 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:16:32,321 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:16:33,331 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:19:17,461 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:19:18,201 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:19:19,101 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:19:48,752 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:19:49,505 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:19:52,052 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:20:30,755 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:20:31,503 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:20:33,438 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-20 15:20:51,983 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-20 15:20:52,704 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-20 15:20:54,087 [ERROR] django.request: Internal Server Error: /ru/shop/users/2/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+TypeError: UserOrderExport.get() got an unexpected keyword argument 'user_id'
+2023-09-21 05:23:19,491 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:23:20,229 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:28:33,633 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:28:34,302 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:29:02,554 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:29:03,201 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:29:14,251 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:29:14,871 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:29:45,352 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:29:45,995 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:31:07,419 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:31:08,079 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:31:39,698 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:31:40,401 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:32:31,364 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:32:32,071 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:33:11,326 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:33:11,984 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:33:45,861 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:33:46,535 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:34:16,178 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:34:16,872 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:34:43,226 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:34:43,836 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:34:54,176 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:34:54,892 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:35:13,925 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:35:14,520 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:36:34,825 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:36:35,526 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:38:00,248 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:38:00,984 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:39:13,188 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:39:13,904 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:39:15,282 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 426, in get
+    return JsonResponse({"user_id": user_id, 'orders': user_orders_data})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/http/response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/serializers/json.py", line 106, in default
+    return super().default(o)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ManyRelatedManager is not JSON serializable
+2023-09-21 05:39:36,197 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:39:37,026 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:39:39,391 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 418, in get
+    user_orders_data = [
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 422, in <listcomp>
+    'products': order.product,
+AttributeError: 'Order' object has no attribute 'product'
+2023-09-21 05:40:48,290 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:40:48,934 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:40:54,867 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 418, in get
+    user_orders_data = [
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 422, in <listcomp>
+    'products': {product for product in order.products},
+TypeError: 'ManyRelatedManager' object is not iterable
+2023-09-21 05:41:23,364 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:41:24,137 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:41:26,031 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 418, in get
+    user_orders_data = [
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 422, in <listcomp>
+    'products': {product for product in order},
+TypeError: 'Order' object is not iterable
+2023-09-21 05:44:13,765 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:44:14,342 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:53:29,782 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:53:30,489 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:53:36,128 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 428, in get
+    for product in order.products:
+TypeError: 'ManyRelatedManager' object is not iterable
+2023-09-21 05:54:23,292 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:54:24,092 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:56:25,217 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:56:25,861 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:56:32,030 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:56:32,522 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:58:17,346 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:58:18,097 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:58:22,358 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 429, in get
+    print(order.product, count)
+AttributeError: 'Order' object has no attribute 'product'
+2023-09-21 05:59:06,954 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:59:07,744 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 05:59:09,880 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 427, in get
+    return JsonResponse({"user_id": user_id, 'orders': user_orders_data})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/http/response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/serializers/json.py", line 106, in default
+    return super().default(o)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type ManyRelatedManager is not JSON serializable
+2023-09-21 05:59:47,203 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 05:59:47,994 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:00:12,251 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:00:12,982 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:00:31,550 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 418, in get
+    user_orders_data = [
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 422, in <listcomp>
+    'products': order.products_id,
+AttributeError: 'Order' object has no attribute 'products_id'
+2023-09-21 06:00:45,304 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:00:46,013 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:00:48,547 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 427, in get
+    return JsonResponse({"user_id": user_id, 'orders': user_orders_data})
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/http/response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/serializers/json.py", line 106, in default
+    return super().default(o)
+  File "/usr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Order is not JSON serializable
+2023-09-21 06:01:36,231 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:01:36,969 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:03:56,668 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:03:57,390 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:03:58,528 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 427, in get
+    for product in order.products.all:
+TypeError: 'method' object is not iterable
+2023-09-21 06:04:14,804 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:04:15,522 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:04:44,095 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:04:45,064 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:05:44,162 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:05:44,917 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:10:20,562 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:10:21,208 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:11:29,308 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:11:29,943 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:12:23,046 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:12:23,732 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:14:07,942 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:14:08,634 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:17:40,032 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:17:40,693 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:18:07,833 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:18:08,638 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:19:29,479 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:19:30,319 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:20:44,700 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:20:45,368 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:21:06,526 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:21:07,290 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:22:38,540 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:22:39,432 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:22:41,669 [ERROR] django.request: Internal Server Error: /ru/shop/users/1/orders/export/
+Traceback (most recent call last):
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 56, in inner
+    response = get_response(request)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/sentry_sdk/integrations/django/views.py", line 84, in sentry_wrapped_callback
+    return callback(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/views/generic/base.py", line 142, in dispatch
+    return handler(request, *args, **kwargs)
+  File "/home/andrey/python_django/my_site/shopapp/views.py", line 434, in get
+    return JsonResponse(json_data)
+  File "/home/andrey/.local/lib/python3.10/site-packages/django/http/response.py", line 684, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+2023-09-21 06:23:10,640 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:23:11,416 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:25:45,086 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:25:45,884 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
