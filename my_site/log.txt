@@ -6773,3 +6773,19 @@ TypeError: In order to allow non-dict objects to be serialized set the safe para
 2023-09-21 06:23:11,416 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-09-21 06:25:45,086 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
 2023-09-21 06:25:45,884 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:40:18,453 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:40:19,241 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:43:15,220 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:43:15,867 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:43:25,946 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:43:26,639 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:43:31,635 [WARNING] django.request: Not Found: /ru/shop/users/200/orders/export/
+2023-09-21 06:45:17,111 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:45:17,865 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:45:20,333 [WARNING] django.request: Not Found: /ru/shop/users/200/orders/export/
+2023-09-21 06:45:29,899 [WARNING] django.request: Not Found: /ru/shop/users/25/orders/export/
+2023-09-21 06:45:34,705 [WARNING] django.request: Not Found: /ru/shop/users/5/orders/export/
+2023-09-21 06:45:40,658 [WARNING] django.request: Not Found: /ru/shop/users/3/orders/export/
+2023-09-21 06:46:21,569 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
+2023-09-21 06:46:22,326 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-21 06:46:26,594 [WARNING] django.request: Not Found: /ru/shop/users/3/orders/export/
