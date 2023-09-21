@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Group, Permission, User
 from django.contrib.syndication.views import Feed
 from django.core.exceptions import PermissionDenied
-from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse, Http404
+from django.http import HttpResponse, HttpRequest, HttpResponseRedirect, JsonResponse, Http404, HttpResponseNotFound
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.cache import cache
 from django.urls import reverse_lazy
@@ -412,10 +412,10 @@ class UserOrderExport(View):
         cache_key = f"user_orders_data_export {user_id}"
         user_data = cache.get(cache_key)
 
-        try:
-            user_orders = Order.objects.filter(user_id=user_id).order_by("pk").all()
-        except Order.DoesNotExist:
-            return ("Пользователь не найден!")
+        user_orders = Order.objects.filter(user_id=user_id).order_by("pk").all()
+        if not user_orders:
+            raise Http404("Пользователь с заказами не найден!")
+
         if user_data is None:
             user_orders_data = [
                 {
