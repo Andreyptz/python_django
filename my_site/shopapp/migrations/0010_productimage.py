@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        # migrations.RunSQL('DROP TABLE IF EXISTS shopapp_productimage',),
+        migrations.RunSQL('DROP TABLE IF EXISTS shopapp_productimage',),
         migrations.CreateModel(
             name='ProductImage',
             fields=[

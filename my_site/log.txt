@@ -6789,3 +6789,31 @@ TypeError: In order to allow non-dict objects to be serialized set the safe para
 2023-09-21 06:46:21,569 [INFO] django.utils.autoreload: /home/andrey/python_django/my_site/shopapp/views.py changed, reloading.
 2023-09-21 06:46:22,326 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
 2023-09-21 06:46:26,594 [WARNING] django.request: Not Found: /ru/shop/users/3/orders/export/
+2023-09-30 12:44:41,580 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 12:47:59,841 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 12:52:54,807 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 12:52:57,770 [WARNING] django.request: Not Found: /
+2023-09-30 12:52:57,946 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-30 12:53:38,845 [INFO] shopapp.views: Rendering shop index
+2023-09-30 12:56:26,746 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 12:56:46,582 [WARNING] django.request: Not Found: /ru/shop/product
+2023-09-30 13:35:24,769 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:35:51,034 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:35:53,925 [WARNING] django.request: Not Found: /
+2023-09-30 13:35:54,091 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-30 13:36:02,574 [WARNING] django.security.csrf: Forbidden (CSRF token missing.): /ru/myauth/login/
+2023-09-30 13:37:02,216 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:37:41,047 [WARNING] django.request: Not Found: /
+2023-09-30 13:37:41,292 [WARNING] django.request: Not Found: /
+2023-09-30 13:38:46,312 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:38:51,472 [WARNING] django.request: Not Found: /
+2023-09-30 13:38:51,788 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-30 13:39:17,542 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:39:20,179 [WARNING] django.request: Not Found: /
+2023-09-30 13:39:20,346 [WARNING] django.request: Not Found: /favicon.ico
+2023-09-30 13:41:16,677 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:41:25,365 [INFO] shopapp.views: Rendering shop index
+2023-09-30 13:43:20,413 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-09-30 13:44:31,201 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 14:53:31,812 [INFO] django.utils.autoreload: Watching for file changes with StatReloader
+2023-10-02 14:53:37,319 [WARNING] django.request: Not Found: /favicon.ico
