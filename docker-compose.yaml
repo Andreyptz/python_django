@@ -3,7 +3,7 @@ version: "3.9"
 services:
   app:
     build:
-      dockerfile: Dockerfile(virtual)
+      dockerfile: Dockerfile
     command:
       - "gunicorn"
       - "my_site.wsgi:application"
