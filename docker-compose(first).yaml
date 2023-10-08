@@ -3,7 +3,7 @@ version: "3.9"
 services:
   app:
     build:
-      dockerfile: Dockerfile1
+      dockerfile: Dockerfile
     command:
       - "python"
       - "manage.py"

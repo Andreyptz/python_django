@@ -3,14 +3,14 @@ version: "3.9"
 services:
   app:
     build:
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile(virtual)
     command:
       - "gunicorn"
       - "my_site.wsgi:application"
       - "--bind"
-      - "0.0.0.0:8080"
+      - "0.0.0.0:8000"
     ports:
-      - "8000:8000"
+      - "8000:8080"
     restart: always
     env_file:
       - .env
